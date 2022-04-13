@@ -1,0 +1,3063 @@
+<html>
+    <head>
+        <meta http-equiv="content-Type" content="text/html; utf-8" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            @font-face {
+                font-family: 'me-quran';
+                src: URL('../../public/fonts/me_quran.ttf');
+            }
+
+            html, body {
+                padding: 0!important;
+                margin: 0!important;
+                width: 1920px!important;
+                height: 1080px!important;
+            }
+
+            div.slide {
+                position: relative;
+                left: 0;
+                top: 0;
+                width: 1922px;
+                height: 1080px;
+                padding: 0!important;
+                margin: 0!important;
+                background-image: url("../files/Templates/1/dark/Hintergrund.png");
+                background-position: -1 1;
+                background-repeat: no-repeat;
+                background-size: 1924px 1086px;
+                overflow: hidden;
+            }
+
+            div.slide.light {
+                background-image: url("../files/Templates/1/light/Hintergrund.png");
+            }
+
+            .ribbon {
+                width: 1922px;
+                height: 100px;
+                background-image: url("../files/Templates/1/dark/ribbon.png");
+                background-repeat: no-repeat;
+                background-size: 1922px 100px;
+                position: absolute;
+                bottom: 25px;
+            }
+
+            .lantern {
+                --width: 170px;
+                --height: 438px;
+                background-image: url("../files/Templates/1/dark/lantern.png");
+                background-repeat: no-repeat;
+                background-size: calc(var(--width) * 0.8) calc(var(--height) * 0.8);
+                width: calc(var(--width) * 0.8);
+                height: calc(var(--height) * 0.8);
+                position: absolute;
+            }
+
+            .small .lantern {
+                background-size: calc(var(--width) * 0.6) calc(var(--height) * 0.6);
+                width: calc(var(--width) * 0.6);
+                height: calc(var(--height) * 0.6);
+                top: -45px;
+            }
+
+            .small .lantern.left {
+                left: 45px;
+            }
+
+            .small .lantern.right {
+                left: 515px;
+            }
+
+            .big .lantern.right {
+                left: 600px;
+                top: 0;
+            }
+
+            .image {
+                --width: 502px;
+                --height: 559px;
+                background-image: url('../files/Templates/1/dark/image.png');
+                background-size: calc(50px + var(--width)) calc(var(--height) * 0.9);
+                background-repeat: no-repeat;
+                width: calc(50px + var(--width));
+                height: var(--height);
+                position: absolute;
+                top: 30px;
+                left: 60px;
+            }
+
+            .text {
+                color: #eaeaea;
+            }
+
+            div.slide.light .text {
+                color: #1d1d1d;
+            }
+
+            .text .arabic {
+                font-family: 'me-quran';
+                text-align: center;
+                width: 1100px;
+                height: 500px;
+                font-size: 5rem;
+                line-height: 10rem;
+                position: absolute;
+                right: 75px;
+                top: 50px;
+                word-spacing: 10;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .verseNumber {
+                font-family: 'me-quran';
+                white-space: nowrap;
+            }
+
+            .text .german {
+                font-family: 'Helvetica';
+                text-align: center;
+                width: 1770px;
+                height: 450px;
+                font-size: 4rem;
+                line-height: 8rem;
+                position: absolute;
+                left: 75px;
+                top: 550px;
+                word-spacing: 5;
+                font-weight: 600;
+            }
+
+            @media print {
+                .slide {
+                    page-break-before: always;
+                }
+            }
+        </style>
+        <script>
+            String.prototype.toArabicDigits= function(){
+                var id= ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+                return this.replace(/[0-9]/g, function(w){
+                    return id[+w]
+                });
+            }
+        </script>
+    </head>
+    <body>
+    
+        
+            <script>
+                var slideNumber = '1'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>الٓر ۚ تِلْكَ ءَايَـٰتُ ٱلْكِتَـٰبِ ٱلْمُبِينِ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>الٓر ۚ تِلْكَ ءَايَـٰتُ ٱلْكِتَـٰبِ ٱلْمُبِينِ (1)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Alif Lam Ra. Dies sind die Zeichen des deutlichen Buches. <span class="verseNumber">(1)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '2'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>إِنَّآ أَنزَلْنَـٰهُ قُرْءَٰنًا عَرَبِيًّۭا لَّعَلَّكُمْ تَعْقِلُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>إِنَّآ أَنزَلْنَـٰهُ قُرْءَٰنًا عَرَبِيًّۭا لَّعَلَّكُمْ تَعْقِلُونَ (2)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Wir haben es als einen arabischen Koran hinabgesandt, auf daß ihr verständig werdet. <span class="verseNumber">(2)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '3'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>نَحْنُ نَقُصُّ عَلَيْكَ أَحْسَنَ ٱلْقَصَصِ بِمَآ أَوْحَيْنَآ إِلَيْكَ هَـٰذَا ٱلْقُرْءَانَ وَإِن كُنتَ مِن قَبْلِهِۦ لَمِنَ ٱلْغَـٰفِلِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>نَحْنُ نَقُصُّ عَلَيْكَ أَحْسَنَ ٱلْقَصَصِ بِمَآ أَوْحَيْنَآ إِلَيْكَ هَـٰذَا ٱلْقُرْءَانَ وَإِن كُنتَ مِن قَبْلِهِۦ لَمِنَ ٱلْغَـٰفِلِينَ (3)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Wir erzählen dir die schönste Erzählung dadurch, daß Wir dir diesen Koran offenbart haben. Du warst vordem einer von denen, die (davon) keine Ahnung hatten. <span class="verseNumber">(3)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '4'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>إِذْ قَالَ يُوسُفُ لِأَبِيهِ يَـٰٓأَبَتِ إِنِّى رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًۭا وَٱلشَّمْسَ وَٱلْقَمَرَ رَأَيْتُهُمْ لِى سَـٰجِدِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>إِذْ قَالَ يُوسُفُ لِأَبِيهِ يَـٰٓأَبَتِ إِنِّى رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًۭا وَٱلشَّمْسَ وَٱلْقَمَرَ رَأَيْتُهُمْ لِى سَـٰجِدِينَ (4)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Als Josef zu seinem Vater sagte: «O mein Vater, ich sah elf Sterne und die Sonne und den Mond, ich sah sie vor mir niederfallen.» <span class="verseNumber">(4)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '5'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالَ يَـٰبُنَىَّ لَا تَقْصُصْ رُءْيَاكَ عَلَىٰٓ إِخْوَتِكَ فَيَكِيدُوا۟ لَكَ كَيْدًا ۖ إِنَّ ٱلشَّيْطَـٰنَ لِلْإِنسَـٰنِ عَدُوٌّۭ مُّبِينٌۭ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالَ يَـٰبُنَىَّ لَا تَقْصُصْ رُءْيَاكَ عَلَىٰٓ إِخْوَتِكَ فَيَكِيدُوا۟ لَكَ كَيْدًا ۖ إِنَّ ٱلشَّيْطَـٰنَ لِلْإِنسَـٰنِ عَدُوٌّۭ مُّبِينٌۭ (5)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Er sagte: «O mein Sohn, erzähle von deinem Traumgesicht nicht deinen Brüdern, sonst werden sie eine List gegen dich ausführen. Der Satan ist den Menschen ein offenkundiger Feind. <span class="verseNumber">(5)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '6'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَكَذَٰلِكَ يَجْتَبِيكَ رَبُّكَ وَيُعَلِّمُكَ مِن تَأْوِيلِ ٱلْأَحَادِيثِ وَيُتِمُّ نِعْمَتَهُۥ عَلَيْكَ وَعَلَىٰٓ ءَالِ يَعْقُوبَ كَمَآ أَتَمَّهَا عَلَىٰٓ أَبَوَيْكَ مِن قَبْلُ إِبْرَٰهِيمَ وَإِسْحَـٰقَ ۚ إِنَّ رَبَّكَ عَلِيمٌ حَكِيمٌۭ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَكَذَٰلِكَ يَجْتَبِيكَ رَبُّكَ وَيُعَلِّمُكَ مِن تَأْوِيلِ ٱلْأَحَادِيثِ وَيُتِمُّ نِعْمَتَهُۥ عَلَيْكَ وَعَلَىٰٓ ءَالِ يَعْقُوبَ كَمَآ أَتَمَّهَا عَلَىٰٓ أَبَوَيْكَ مِن قَبْلُ إِبْرَٰهِيمَ وَإِسْحَـٰقَ ۚ إِنَّ رَبَّكَ عَلِيمٌ حَكِيمٌۭ (6)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und so wird dein Herr dich erwählen und dich etwas von der Deutung der Geschichten lehren und seine Gnade an dir und an der Sippe Jakobs vollenden, wie Er sie vorher an seinen beiden Vätern Abraham und Isaak vollendet hat. Dein Herr weiß Bescheid und ist weise.» <span class="verseNumber">(6)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '7'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>۞ لَّقَدْ كَانَ فِى يُوسُفَ وَإِخْوَتِهِۦٓ ءَايَـٰتٌۭ لِّلسَّآئِلِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>۞ لَّقَدْ كَانَ فِى يُوسُفَ وَإِخْوَتِهِۦٓ ءَايَـٰتٌۭ لِّلسَّآئِلِينَ (7)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Siehe, in Josef und seinen Brüdern sind Zeichen für die, die (nach der Wahrheit) fragen. <span class="verseNumber">(7)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '8'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>إِذْ قَالُوا۟ لَيُوسُفُ وَأَخُوهُ أَحَبُّ إِلَىٰٓ أَبِينَا مِنَّا وَنَحْنُ عُصْبَةٌ إِنَّ أَبَانَا لَفِى ضَلَـٰلٍۢ مُّبِينٍ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>إِذْ قَالُوا۟ لَيُوسُفُ وَأَخُوهُ أَحَبُّ إِلَىٰٓ أَبِينَا مِنَّا وَنَحْنُ عُصْبَةٌ إِنَّ أَبَانَا لَفِى ضَلَـٰلٍۢ مُّبِينٍ (8)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Als sie sagten: «Josef und sein Bruder sind unserem Vater bestimmt lieber als wir, obwohl wir eine (beachtliche) Gruppe sind. Unser Vater befindet sich in einem offenkundigen Irrtum. <span class="verseNumber">(8)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '9'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>ٱقْتُلُوا۟ يُوسُفَ أَوِ ٱطْرَحُوهُ أَرْضًۭا يَخْلُ لَكُمْ وَجْهُ أَبِيكُمْ وَتَكُونُوا۟ مِنۢ بَعْدِهِۦ قَوْمًۭا صَـٰلِحِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>ٱقْتُلُوا۟ يُوسُفَ أَوِ ٱطْرَحُوهُ أَرْضًۭا يَخْلُ لَكُمْ وَجْهُ أَبِيكُمْ وَتَكُونُوا۟ مِنۢ بَعْدِهِۦ قَوْمًۭا صَـٰلِحِينَ (9)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Tötet Josef oder werft ihn ins Land hinaus, so wird das Gesicht eures Vaters nur noch auf euch schauen, und danach werdet ihr Leute sein, die rechtschaffen sind.» <span class="verseNumber">(9)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '10'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالَ قَآئِلٌۭ مِّنْهُمْ لَا تَقْتُلُوا۟ يُوسُفَ وَأَلْقُوهُ فِى غَيَـٰبَتِ ٱلْجُبِّ يَلْتَقِطْهُ بَعْضُ ٱلسَّيَّارَةِ إِن كُنتُمْ فَـٰعِلِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالَ قَآئِلٌۭ مِّنْهُمْ لَا تَقْتُلُوا۟ يُوسُفَ وَأَلْقُوهُ فِى غَيَـٰبَتِ ٱلْجُبِّ يَلْتَقِطْهُ بَعْضُ ٱلسَّيَّارَةِ إِن كُنتُمْ فَـٰعِلِينَ (10)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Ein Sprecher unter ihnen sagte: «Tötet Josef nicht, werft ihn (lieber) in die verborgene Tiefe der Zisterne, dann wird ihn schon der eine oder andere Reisende aufnehmen, wenn ihr doch etwas tun wollt.» <span class="verseNumber">(10)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '11'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالُوا۟ يَـٰٓأَبَانَا مَا لَكَ لَا تَأْمَ۫نَّا عَلَىٰ يُوسُفَ وَإِنَّا لَهُۥ لَنَـٰصِحُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالُوا۟ يَـٰٓأَبَانَا مَا لَكَ لَا تَأْمَ۫نَّا عَلَىٰ يُوسُفَ وَإِنَّا لَهُۥ لَنَـٰصِحُونَ (11)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie sagten: «O unser Vater, warum vertraust du uns Josef nicht an? Wir werden ihm sicher gut raten. <span class="verseNumber">(11)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '12'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>أَرْسِلْهُ مَعَنَا غَدًۭا يَرْتَعْ وَيَلْعَبْ وَإِنَّا لَهُۥ لَحَـٰفِظُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>أَرْسِلْهُ مَعَنَا غَدًۭا يَرْتَعْ وَيَلْعَبْ وَإِنَّا لَهُۥ لَحَـٰفِظُونَ (12)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Schick ihn morgen mit uns, daß er sich frei bewege und spiele. Wir werden ihn sicher behüten.» <span class="verseNumber">(12)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '13'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالَ إِنِّى لَيَحْزُنُنِىٓ أَن تَذْهَبُوا۟ بِهِۦ وَأَخَافُ أَن يَأْكُلَهُ ٱلذِّئْبُ وَأَنتُمْ عَنْهُ غَـٰفِلُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالَ إِنِّى لَيَحْزُنُنِىٓ أَن تَذْهَبُوا۟ بِهِۦ وَأَخَافُ أَن يَأْكُلَهُ ٱلذِّئْبُ وَأَنتُمْ عَنْهُ غَـٰفِلُونَ (13)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Er sagte: «Es macht mich traurig, daß ihr ihn mitnehmen wollt. Und ich fürchte, daß ihn der Wolf frißt, während ihr nicht auf ihn achtgebt.» <span class="verseNumber">(13)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '14'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالُوا۟ لَئِنْ أَكَلَهُ ٱلذِّئْبُ وَنَحْنُ عُصْبَةٌ إِنَّآ إِذًۭا لَّخَـٰسِرُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالُوا۟ لَئِنْ أَكَلَهُ ٱلذِّئْبُ وَنَحْنُ عُصْبَةٌ إِنَّآ إِذًۭا لَّخَـٰسِرُونَ (14)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie sagten: «Sollte ihn der Wolf fressen, wo wir doch eine (beachtliche) Gruppe sind, dann werden wir gewiß Verlust davon tragen.» <span class="verseNumber">(14)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '15'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>فَلَمَّا ذَهَبُوا۟ بِهِۦ وَأَجْمَعُوٓا۟ أَن يَجْعَلُوهُ فِى غَيَـٰبَتِ ٱلْجُبِّ ۚ وَأَوْحَيْنَآ إِلَيْهِ لَتُنَبِّئَنَّهُم بِأَمْرِهِمْ هَـٰذَا وَهُمْ لَا يَشْعُرُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>فَلَمَّا ذَهَبُوا۟ بِهِۦ وَأَجْمَعُوٓا۟ أَن يَجْعَلُوهُ فِى غَيَـٰبَتِ ٱلْجُبِّ ۚ وَأَوْحَيْنَآ إِلَيْهِ لَتُنَبِّئَنَّهُم بِأَمْرِهِمْ هَـٰذَا وَهُمْ لَا يَشْعُرُونَ (15)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Als sie ihn mitnahmen und übereinkamen, ihn in die verborgene Tiefe der Zisterne hinunterzulassen... - Und Wir offenbarten ihm: «Du wirst ihnen noch das, was sie hier getan haben, kundtun, ohne daß sie es merken.» <span class="verseNumber">(15)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '16'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَجَآءُوٓ أَبَاهُمْ عِشَآءًۭ يَبْكُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَجَآءُوٓ أَبَاهُمْ عِشَآءًۭ يَبْكُونَ (16)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und am Abend kamen sie weinend zu ihrem Vater. <span class="verseNumber">(16)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '17'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالُوا۟ يَـٰٓأَبَانَآ إِنَّا ذَهَبْنَا نَسْتَبِقُ وَتَرَكْنَا يُوسُفَ عِندَ مَتَـٰعِنَا فَأَكَلَهُ ٱلذِّئْبُ ۖ وَمَآ أَنتَ بِمُؤْمِنٍۢ لَّنَا وَلَوْ كُنَّا صَـٰدِقِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالُوا۟ يَـٰٓأَبَانَآ إِنَّا ذَهَبْنَا نَسْتَبِقُ وَتَرَكْنَا يُوسُفَ عِندَ مَتَـٰعِنَا فَأَكَلَهُ ٱلذِّئْبُ ۖ وَمَآ أَنتَ بِمُؤْمِنٍۢ لَّنَا وَلَوْ كُنَّا صَـٰدِقِينَ (17)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie sagten: «O unser Vater, wir gingen, um einen Wettlauf zu machen, und ließen Josef bei unseren Sachen zurück. Da fraß ihn der Wolf. Du glaubst uns wohl nicht, auch wenn wir die Wahrheit sagen.» <span class="verseNumber">(17)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '18'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَجَآءُو عَلَىٰ قَمِيصِهِۦ بِدَمٍۢ كَذِبٍۢ ۚ قَالَ بَلْ سَوَّلَتْ لَكُمْ أَنفُسُكُمْ أَمْرًۭا ۖ فَصَبْرٌۭ جَمِيلٌۭ ۖ وَٱللَّهُ ٱلْمُسْتَعَانُ عَلَىٰ مَا تَصِفُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَجَآءُو عَلَىٰ قَمِيصِهِۦ بِدَمٍۢ كَذِبٍۢ ۚ قَالَ بَلْ سَوَّلَتْ لَكُمْ أَنفُسُكُمْ أَمْرًۭا ۖ فَصَبْرٌۭ جَمِيلٌۭ ۖ وَٱللَّهُ ٱلْمُسْتَعَانُ عَلَىٰ مَا تَصِفُونَ (18)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie trugen auf sein Hemd falsches Blut auf. Er sagte: «Nein, eure Seele hat euch etwas eingeredet. (Es gilt) schöne Geduld (zu üben). Gott ist der, der um Hilfe gebeten wird gegen das, was ihr beschreibt.» <span class="verseNumber">(18)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '19'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَجَآءَتْ سَيَّارَةٌۭ فَأَرْسَلُوا۟ وَارِدَهُمْ فَأَدْلَىٰ دَلْوَهُۥ ۖ قَالَ يَـٰبُشْرَىٰ هَـٰذَا غُلَـٰمٌۭ ۚ وَأَسَرُّوهُ بِضَـٰعَةًۭ ۚ وَٱللَّهُ عَلِيمٌۢ بِمَا يَعْمَلُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَجَآءَتْ سَيَّارَةٌۭ فَأَرْسَلُوا۟ وَارِدَهُمْ فَأَدْلَىٰ دَلْوَهُۥ ۖ قَالَ يَـٰبُشْرَىٰ هَـٰذَا غُلَـٰمٌۭ ۚ وَأَسَرُّوهُ بِضَـٰعَةًۭ ۚ وَٱللَّهُ عَلِيمٌۢ بِمَا يَعْمَلُونَ (19)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Reisende kamen vorbei. Sie schickten ihren Wasserschöpfer, und er ließ seinen Eimer hinunter. Er sagte: «O gute Nachricht! Da ist ein Junge.» Sie versteckten ihn als Ware. Und Gott wußte wohl, was sie taten. <span class="verseNumber">(19)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '20'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَشَرَوْهُ بِثَمَنٍۭ بَخْسٍۢ دَرَٰهِمَ مَعْدُودَةٍۢ وَكَانُوا۟ فِيهِ مِنَ ٱلزَّٰهِدِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَشَرَوْهُ بِثَمَنٍۭ بَخْسٍۢ دَرَٰهِمَ مَعْدُودَةٍۢ وَكَانُوا۟ فِيهِ مِنَ ٱلزَّٰهِدِينَ (20)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und sie verkauften ihn für einen zu niedrigen Preis, einige gezählte Drachmen. Und sie übten Verzicht in bezug auf ihn. <span class="verseNumber">(20)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '21'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَقَالَ ٱلَّذِى ٱشْتَرَىٰهُ مِن مِّصْرَ لِٱمْرَأَتِهِۦٓ أَكْرِمِى مَثْوَىٰهُ عَسَىٰٓ أَن يَنفَعَنَآ أَوْ نَتَّخِذَهُۥ وَلَدًۭا ۚ وَكَذَٰلِكَ مَكَّنَّا لِيُوسُفَ فِى ٱلْأَرْضِ وَلِنُعَلِّمَهُۥ مِن تَأْوِيلِ ٱلْأَحَادِيثِ ۚ وَٱللَّهُ غَالِبٌ عَلَىٰٓ أَمْرِهِۦ وَلَـٰكِنَّ أَكْثَرَ ٱلنَّاسِ لَا يَعْلَمُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَقَالَ ٱلَّذِى ٱشْتَرَىٰهُ مِن مِّصْرَ لِٱمْرَأَتِهِۦٓ أَكْرِمِى مَثْوَىٰهُ عَسَىٰٓ أَن يَنفَعَنَآ أَوْ نَتَّخِذَهُۥ وَلَدًۭا ۚ وَكَذَٰلِكَ مَكَّنَّا لِيُوسُفَ فِى ٱلْأَرْضِ وَلِنُعَلِّمَهُۥ مِن تَأْوِيلِ ٱلْأَحَادِيثِ ۚ وَٱللَّهُ غَالِبٌ عَلَىٰٓ أَمْرِهِۦ وَلَـٰكِنَّ أَكْثَرَ ٱلنَّاسِ لَا يَعْلَمُونَ (21)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und derjenige aus Ägypten, der ihn gekauft hatte, sagte zu seiner Frau: «Bereite ihm eine freundliche Bleibe. Möge er uns Nutzen bringen, oder vielleicht nehmen wir ihn als Kind an.» Und Wir gaben dem Josef eine angesehene Stellung im Land. Und Wir wollten ihn die Deutung der Geschichten lehren. Und Gott ist in seiner Angelegenheit überlegen. Aber die meisten Menschen wissen nicht Bescheid. <span class="verseNumber">(21)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '22'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَلَمَّا بَلَغَ أَشُدَّهُۥٓ ءَاتَيْنَـٰهُ حُكْمًۭا وَعِلْمًۭا ۚ وَكَذَٰلِكَ نَجْزِى ٱلْمُحْسِنِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَلَمَّا بَلَغَ أَشُدَّهُۥٓ ءَاتَيْنَـٰهُ حُكْمًۭا وَعِلْمًۭا ۚ وَكَذَٰلِكَ نَجْزِى ٱلْمُحْسِنِينَ (22)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Als er seine Vollkraft erreicht hatte, ließen Wir ihm Urteilskraft und Wissen zukommen. So entlohnen Wir die Rechtschaffenen. <span class="verseNumber">(22)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '23'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَرَٰوَدَتْهُ ٱلَّتِى هُوَ فِى بَيْتِهَا عَن نَّفْسِهِۦ وَغَلَّقَتِ ٱلْأَبْوَٰبَ وَقَالَتْ هَيْتَ لَكَ ۚ قَالَ مَعَاذَ ٱللَّهِ ۖ إِنَّهُۥ رَبِّىٓ أَحْسَنَ مَثْوَاىَ ۖ إِنَّهُۥ لَا يُفْلِحُ ٱلظَّـٰلِمُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَرَٰوَدَتْهُ ٱلَّتِى هُوَ فِى بَيْتِهَا عَن نَّفْسِهِۦ وَغَلَّقَتِ ٱلْأَبْوَٰبَ وَقَالَتْ هَيْتَ لَكَ ۚ قَالَ مَعَاذَ ٱللَّهِ ۖ إِنَّهُۥ رَبِّىٓ أَحْسَنَ مَثْوَاىَ ۖ إِنَّهُۥ لَا يُفْلِحُ ٱلظَّـٰلِمُونَ (23)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und die, in deren Haus er war, versuchte, ihn zu verführen. Sie schloß die Türen ab und sagte: «Komm her.» Er sagte: «Gott behüte! Er, mein Besitzer, hat mir eine schöne Bleibe bereitet. Denen, die Unrecht tun, wird es nicht wohl ergehen.» <span class="verseNumber">(23)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '24'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَلَقَدْ هَمَّتْ بِهِۦ ۖ وَهَمَّ بِهَا لَوْلَآ أَن رَّءَا بُرْهَـٰنَ رَبِّهِۦ ۚ كَذَٰلِكَ لِنَصْرِفَ عَنْهُ ٱلسُّوٓءَ وَٱلْفَحْشَآءَ ۚ إِنَّهُۥ مِنْ عِبَادِنَا ٱلْمُخْلَصِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَلَقَدْ هَمَّتْ بِهِۦ ۖ وَهَمَّ بِهَا لَوْلَآ أَن رَّءَا بُرْهَـٰنَ رَبِّهِۦ ۚ كَذَٰلِكَ لِنَصْرِفَ عَنْهُ ٱلسُّوٓءَ وَٱلْفَحْشَآءَ ۚ إِنَّهُۥ مِنْ عِبَادِنَا ٱلْمُخْلَصِينَ (24)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie hätte sich beinahe mit ihm eingelassen, und er hätte sich beinahe mit ihr eingelassen, hätte er nicht den Beweis seines Herrn gesehen. Dies (geschah), damit Wir das Böse und das Schändliche von ihm abwehrten. Er gehört ja zu unseren auserwählten Dienern. <span class="verseNumber">(24)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '25'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَٱسْتَبَقَا ٱلْبَابَ وَقَدَّتْ قَمِيصَهُۥ مِن دُبُرٍۢ وَأَلْفَيَا سَيِّدَهَا لَدَا ٱلْبَابِ ۚ قَالَتْ مَا جَزَآءُ مَنْ أَرَادَ بِأَهْلِكَ سُوٓءًا إِلَّآ أَن يُسْجَنَ أَوْ عَذَابٌ أَلِيمٌۭ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَٱسْتَبَقَا ٱلْبَابَ وَقَدَّتْ قَمِيصَهُۥ مِن دُبُرٍۢ وَأَلْفَيَا سَيِّدَهَا لَدَا ٱلْبَابِ ۚ قَالَتْ مَا جَزَآءُ مَنْ أَرَادَ بِأَهْلِكَ سُوٓءًا إِلَّآ أَن يُسْجَنَ أَوْ عَذَابٌ أَلِيمٌۭ (25)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie suchten beide als erster die Tür zu erreichen. Sie zerriß ihm von hinten das Hemd. Und sie trafen auf ihren Herrn bei der Tür. Sie sagte: «Der Lohn dessen, der deiner Familie Böses antun wollte, ist ja wohl das Gefängnis oder eine schmerzhafte Pein.» <span class="verseNumber">(25)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '26'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالَ هِىَ رَٰوَدَتْنِى عَن نَّفْسِى ۚ وَشَهِدَ شَاهِدٌۭ مِّنْ أَهْلِهَآ إِن كَانَ قَمِيصُهُۥ قُدَّ مِن قُبُلٍۢ فَصَدَقَتْ وَهُوَ مِنَ ٱلْكَـٰذِبِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالَ هِىَ رَٰوَدَتْنِى عَن نَّفْسِى ۚ وَشَهِدَ شَاهِدٌۭ مِّنْ أَهْلِهَآ إِن كَانَ قَمِيصُهُۥ قُدَّ مِن قُبُلٍۢ فَصَدَقَتْ وَهُوَ مِنَ ٱلْكَـٰذِبِينَ (26)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Er sagte: «Sie war es, die versucht hat, mich zu verführen.» Und ein Zeuge aus ihrer Familie bezeugte: «Wenn sein Hemd vorn zerrissen ist, hat sie die Wahrheit gesagt, und er ist einer von denen, die lügen. <span class="verseNumber">(26)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '27'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَإِن كَانَ قَمِيصُهُۥ قُدَّ مِن دُبُرٍۢ فَكَذَبَتْ وَهُوَ مِنَ ٱلصَّـٰدِقِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَإِن كَانَ قَمِيصُهُۥ قُدَّ مِن دُبُرٍۢ فَكَذَبَتْ وَهُوَ مِنَ ٱلصَّـٰدِقِينَ (27)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und wenn sein Hemd hinten zerrissen ist, hat sie gelogen, und er ist einer von denen, die die Wahrheit sagen.» <span class="verseNumber">(27)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '28'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>فَلَمَّا رَءَا قَمِيصَهُۥ قُدَّ مِن دُبُرٍۢ قَالَ إِنَّهُۥ مِن كَيْدِكُنَّ ۖ إِنَّ كَيْدَكُنَّ عَظِيمٌۭ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>فَلَمَّا رَءَا قَمِيصَهُۥ قُدَّ مِن دُبُرٍۢ قَالَ إِنَّهُۥ مِن كَيْدِكُنَّ ۖ إِنَّ كَيْدَكُنَّ عَظِيمٌۭ (28)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Als er nun sah, daß sein Hemd hinten zerrissen war, sagte er: «Das ist eine List von euch. Eure List ist gewaltig. <span class="verseNumber">(28)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '29'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>يُوسُفُ أَعْرِضْ عَنْ هَـٰذَا ۚ وَٱسْتَغْفِرِى لِذَنۢبِكِ ۖ إِنَّكِ كُنتِ مِنَ ٱلْخَاطِـِٔينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>يُوسُفُ أَعْرِضْ عَنْ هَـٰذَا ۚ وَٱسْتَغْفِرِى لِذَنۢبِكِ ۖ إِنَّكِ كُنتِ مِنَ ٱلْخَاطِـِٔينَ (29)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Josef, wende dich davon ab. Und (du), bitte um Vergebung für deine Schuld. Du gehörst ja zu denen, die sich versündigt haben.» <span class="verseNumber">(29)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '30'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>۞ وَقَالَ نِسْوَةٌۭ فِى ٱلْمَدِينَةِ ٱمْرَأَتُ ٱلْعَزِيزِ تُرَٰوِدُ فَتَىٰهَا عَن نَّفْسِهِۦ ۖ قَدْ شَغَفَهَا حُبًّا ۖ إِنَّا لَنَرَىٰهَا فِى ضَلَـٰلٍۢ مُّبِينٍۢ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>۞ وَقَالَ نِسْوَةٌۭ فِى ٱلْمَدِينَةِ ٱمْرَأَتُ ٱلْعَزِيزِ تُرَٰوِدُ فَتَىٰهَا عَن نَّفْسِهِۦ ۖ قَدْ شَغَفَهَا حُبًّا ۖ إِنَّا لَنَرَىٰهَا فِى ضَلَـٰلٍۢ مُّبِينٍۢ (30)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Nun sagten Frauen in der Stadt: «Die Gemahlin des Hochmögenden versucht, ihren Knecht zu verführen. Er hat sie in leidenschaftliche Liebe versetzt. Wir sehen, sie befindet sich in einem offenkundigen Irrtum.» <span class="verseNumber">(30)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '31'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>فَلَمَّا سَمِعَتْ بِمَكْرِهِنَّ أَرْسَلَتْ إِلَيْهِنَّ وَأَعْتَدَتْ لَهُنَّ مُتَّكَـًۭٔا وَءَاتَتْ كُلَّ وَٰحِدَةٍۢ مِّنْهُنَّ سِكِّينًۭا وَقَالَتِ ٱخْرُجْ عَلَيْهِنَّ ۖ فَلَمَّا رَأَيْنَهُۥٓ أَكْبَرْنَهُۥ وَقَطَّعْنَ أَيْدِيَهُنَّ وَقُلْنَ حَـٰشَ لِلَّهِ مَا هَـٰذَا بَشَرًا إِنْ هَـٰذَآ إِلَّا مَلَكٌۭ كَرِيمٌۭ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>فَلَمَّا سَمِعَتْ بِمَكْرِهِنَّ أَرْسَلَتْ إِلَيْهِنَّ وَأَعْتَدَتْ لَهُنَّ مُتَّكَـًۭٔا وَءَاتَتْ كُلَّ وَٰحِدَةٍۢ مِّنْهُنَّ سِكِّينًۭا وَقَالَتِ ٱخْرُجْ عَلَيْهِنَّ ۖ فَلَمَّا رَأَيْنَهُۥٓ أَكْبَرْنَهُۥ وَقَطَّعْنَ أَيْدِيَهُنَّ وَقُلْنَ حَـٰشَ لِلَّهِ مَا هَـٰذَا بَشَرًا إِنْ هَـٰذَآ إِلَّا مَلَكٌۭ كَرِيمٌۭ (31)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Als sie von ihren Ränken hörte, schickte sie zu ihnen und bereitete ihnen ein Gelage. Sie ließ einer jeden von ihnen ein Messer geben und sagte (zu Josef): «Komm zu ihnen heraus.» Als sie ihn sahen, fanden sie ihn außerordentlich, und sie schnitten sich in die Hände und sagten: «Gott bewahre! Das ist nicht ein Mensch. Das ist nur ein edler Engel.» <span class="verseNumber">(31)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '32'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالَتْ فَذَٰلِكُنَّ ٱلَّذِى لُمْتُنَّنِى فِيهِ ۖ وَلَقَدْ رَٰوَدتُّهُۥ عَن نَّفْسِهِۦ فَٱسْتَعْصَمَ ۖ وَلَئِن لَّمْ يَفْعَلْ مَآ ءَامُرُهُۥ لَيُسْجَنَنَّ وَلَيَكُونًۭا مِّنَ ٱلصَّـٰغِرِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالَتْ فَذَٰلِكُنَّ ٱلَّذِى لُمْتُنَّنِى فِيهِ ۖ وَلَقَدْ رَٰوَدتُّهُۥ عَن نَّفْسِهِۦ فَٱسْتَعْصَمَ ۖ وَلَئِن لَّمْ يَفْعَلْ مَآ ءَامُرُهُۥ لَيُسْجَنَنَّ وَلَيَكُونًۭا مِّنَ ٱلصَّـٰغِرِينَ (32)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie sagte: «Das ist der, dessentwegen ihr mich getadelt habt. Ich habe versucht, ihn zu verführen. Er aber hielt an seiner Unschuld fest. Und wenn er nicht tut, was ich ihm befehle, wird er bestimmt ins Gefängnis geworfen werden, und er wird zu denen gehören, die erniedrigt werden.» <span class="verseNumber">(32)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '33'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالَ رَبِّ ٱلسِّجْنُ أَحَبُّ إِلَىَّ مِمَّا يَدْعُونَنِىٓ إِلَيْهِ ۖ وَإِلَّا تَصْرِفْ عَنِّى كَيْدَهُنَّ أَصْبُ إِلَيْهِنَّ وَأَكُن مِّنَ ٱلْجَـٰهِلِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالَ رَبِّ ٱلسِّجْنُ أَحَبُّ إِلَىَّ مِمَّا يَدْعُونَنِىٓ إِلَيْهِ ۖ وَإِلَّا تَصْرِفْ عَنِّى كَيْدَهُنَّ أَصْبُ إِلَيْهِنَّ وَأَكُن مِّنَ ٱلْجَـٰهِلِينَ (33)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Er sagte: «Mein Herr, mir ist das Gefängnis lieber als das, wozu sie mich auffordern. Und wenn du ihre List von mir nicht abwehrst, werde ich mich zu ihnen hingezogen fühlen und einer der Törichten sein.» <span class="verseNumber">(33)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '34'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>فَٱسْتَجَابَ لَهُۥ رَبُّهُۥ فَصَرَفَ عَنْهُ كَيْدَهُنَّ ۚ إِنَّهُۥ هُوَ ٱلسَّمِيعُ ٱلْعَلِيمُ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>فَٱسْتَجَابَ لَهُۥ رَبُّهُۥ فَصَرَفَ عَنْهُ كَيْدَهُنَّ ۚ إِنَّهُۥ هُوَ ٱلسَّمِيعُ ٱلْعَلِيمُ (34)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sein Herr erhörte ihn und wehrte ihre List von ihm ab. Er ist es, der alles hört und weiß. <span class="verseNumber">(34)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '35'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>ثُمَّ بَدَا لَهُم مِّنۢ بَعْدِ مَا رَأَوُا۟ ٱلْـَٔايَـٰتِ لَيَسْجُنُنَّهُۥ حَتَّىٰ حِينٍۢ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>ثُمَّ بَدَا لَهُم مِّنۢ بَعْدِ مَا رَأَوُا۟ ٱلْـَٔايَـٰتِ لَيَسْجُنُنَّهُۥ حَتَّىٰ حِينٍۢ (35)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Dann, nachdem sie die Zeichen gesehen hatten, schien es ihnen angebracht, ihn eine Zeitlang ins Gefängnis zu werfen. <span class="verseNumber">(35)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '36'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَدَخَلَ مَعَهُ ٱلسِّجْنَ فَتَيَانِ ۖ قَالَ أَحَدُهُمَآ إِنِّىٓ أَرَىٰنِىٓ أَعْصِرُ خَمْرًۭا ۖ وَقَالَ ٱلْـَٔاخَرُ إِنِّىٓ أَرَىٰنِىٓ أَحْمِلُ فَوْقَ رَأْسِى خُبْزًۭا تَأْكُلُ ٱلطَّيْرُ مِنْهُ ۖ نَبِّئْنَا بِتَأْوِيلِهِۦٓ ۖ إِنَّا نَرَىٰكَ مِنَ ٱلْمُحْسِنِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَدَخَلَ مَعَهُ ٱلسِّجْنَ فَتَيَانِ ۖ قَالَ أَحَدُهُمَآ إِنِّىٓ أَرَىٰنِىٓ أَعْصِرُ خَمْرًۭا ۖ وَقَالَ ٱلْـَٔاخَرُ إِنِّىٓ أَرَىٰنِىٓ أَحْمِلُ فَوْقَ رَأْسِى خُبْزًۭا تَأْكُلُ ٱلطَّيْرُ مِنْهُ ۖ نَبِّئْنَا بِتَأْوِيلِهِۦٓ ۖ إِنَّا نَرَىٰكَ مِنَ ٱلْمُحْسِنِينَ (36)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Mit ihm kamen zwei Knechte ins Gefängnis. Der eine von ihnen sagte: «Ich sah mich Wein keltern.» Der andere sagte: «Ich sah mich auf dem Kopf Brot tragen, von dem die Vögel fraßen. So tu uns kund, wie dies zu deuten ist. Wir sehen es, du gehörst zu den Rechtschaffenen.» <span class="verseNumber">(36)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '37'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالَ لَا يَأْتِيكُمَا طَعَامٌۭ تُرْزَقَانِهِۦٓ إِلَّا نَبَّأْتُكُمَا بِتَأْوِيلِهِۦ قَبْلَ أَن يَأْتِيَكُمَا ۚ ذَٰلِكُمَا مِمَّا عَلَّمَنِى رَبِّىٓ ۚ إِنِّى تَرَكْتُ مِلَّةَ قَوْمٍۢ لَّا يُؤْمِنُونَ بِٱللَّهِ وَهُم بِٱلْـَٔاخِرَةِ هُمْ كَـٰفِرُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالَ لَا يَأْتِيكُمَا طَعَامٌۭ تُرْزَقَانِهِۦٓ إِلَّا نَبَّأْتُكُمَا بِتَأْوِيلِهِۦ قَبْلَ أَن يَأْتِيَكُمَا ۚ ذَٰلِكُمَا مِمَّا عَلَّمَنِى رَبِّىٓ ۚ إِنِّى تَرَكْتُ مِلَّةَ قَوْمٍۢ لَّا يُؤْمِنُونَ بِٱللَّهِ وَهُم بِٱلْـَٔاخِرَةِ هُمْ كَـٰفِرُونَ (37)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Er sagte: «Es wird euch das Essen, mit dem ihr versorgt werdet, nicht gebracht, ohne daß ich euch kundgetan habe, wie es zu deuten ist, bevor es euch gebracht wird. Das ist etwas von dem, was mich mein Herr gelehrt hat. Verlassen habe ich die Glaubensrichtung von Leuten, die nicht an Gott glauben und die das Jenseits verleugnen, <span class="verseNumber">(37)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '38'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَٱتَّبَعْتُ مِلَّةَ ءَابَآءِىٓ إِبْرَٰهِيمَ وَإِسْحَـٰقَ وَيَعْقُوبَ ۚ مَا كَانَ لَنَآ أَن نُّشْرِكَ بِٱللَّهِ مِن شَىْءٍۢ ۚ ذَٰلِكَ مِن فَضْلِ ٱللَّهِ عَلَيْنَا وَعَلَى ٱلنَّاسِ وَلَـٰكِنَّ أَكْثَرَ ٱلنَّاسِ لَا يَشْكُرُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَٱتَّبَعْتُ مِلَّةَ ءَابَآءِىٓ إِبْرَٰهِيمَ وَإِسْحَـٰقَ وَيَعْقُوبَ ۚ مَا كَانَ لَنَآ أَن نُّشْرِكَ بِٱللَّهِ مِن شَىْءٍۢ ۚ ذَٰلِكَ مِن فَضْلِ ٱللَّهِ عَلَيْنَا وَعَلَى ٱلنَّاسِ وَلَـٰكِنَّ أَكْثَرَ ٱلنَّاسِ لَا يَشْكُرُونَ (38)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und ich bin der Glaubensrichtung meiner Väter Abraham, Isaak und Jakob gefolgt. Wir dürfen Gott nichts beigesellen. Das ist etwas von der Huld Gottes zu uns und zu den Menschen. Aber die meisten Menschen sind nicht dankbar. <span class="verseNumber">(38)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '39'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>يَـٰصَـٰحِبَىِ ٱلسِّجْنِ ءَأَرْبَابٌۭ مُّتَفَرِّقُونَ خَيْرٌ أَمِ ٱللَّهُ ٱلْوَٰحِدُ ٱلْقَهَّارُ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>يَـٰصَـٰحِبَىِ ٱلسِّجْنِ ءَأَرْبَابٌۭ مُّتَفَرِّقُونَ خَيْرٌ أَمِ ٱللَّهُ ٱلْوَٰحِدُ ٱلْقَهَّارُ (39)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>O ihr beiden Insassen des Gefängnisses! Sind verschiedene Herren besser, oder der eine Gott, der bezwingende Macht besitzt? <span class="verseNumber">(39)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '40'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>مَا تَعْبُدُونَ مِن دُونِهِۦٓ إِلَّآ أَسْمَآءًۭ سَمَّيْتُمُوهَآ أَنتُمْ وَءَابَآؤُكُم مَّآ أَنزَلَ ٱللَّهُ بِهَا مِن سُلْطَـٰنٍ ۚ إِنِ ٱلْحُكْمُ إِلَّا لِلَّهِ ۚ أَمَرَ أَلَّا تَعْبُدُوٓا۟ إِلَّآ إِيَّاهُ ۚ ذَٰلِكَ ٱلدِّينُ ٱلْقَيِّمُ وَلَـٰكِنَّ أَكْثَرَ ٱلنَّاسِ لَا يَعْلَمُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>مَا تَعْبُدُونَ مِن دُونِهِۦٓ إِلَّآ أَسْمَآءًۭ سَمَّيْتُمُوهَآ أَنتُمْ وَءَابَآؤُكُم مَّآ أَنزَلَ ٱللَّهُ بِهَا مِن سُلْطَـٰنٍ ۚ إِنِ ٱلْحُكْمُ إِلَّا لِلَّهِ ۚ أَمَرَ أَلَّا تَعْبُدُوٓا۟ إِلَّآ إِيَّاهُ ۚ ذَٰلِكَ ٱلدِّينُ ٱلْقَيِّمُ وَلَـٰكِنَّ أَكْثَرَ ٱلنَّاسِ لَا يَعْلَمُونَ (40)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Ihr dient außer Ihm nur Namen, die ihr genannt habt, ihr und eure Väter, für die aber Gott keine Ermächtigung herabgesandt hat. Das Urteil gehört Gott allein. Er hat befohlen, daß ihr nur Ihm dienen sollt. Das ist die richtige Religion. Aber die meisten Menschen wissen nicht Bescheid. <span class="verseNumber">(40)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '41'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>يَـٰصَـٰحِبَىِ ٱلسِّجْنِ أَمَّآ أَحَدُكُمَا فَيَسْقِى رَبَّهُۥ خَمْرًۭا ۖ وَأَمَّا ٱلْـَٔاخَرُ فَيُصْلَبُ فَتَأْكُلُ ٱلطَّيْرُ مِن رَّأْسِهِۦ ۚ قُضِىَ ٱلْأَمْرُ ٱلَّذِى فِيهِ تَسْتَفْتِيَانِ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>يَـٰصَـٰحِبَىِ ٱلسِّجْنِ أَمَّآ أَحَدُكُمَا فَيَسْقِى رَبَّهُۥ خَمْرًۭا ۖ وَأَمَّا ٱلْـَٔاخَرُ فَيُصْلَبُ فَتَأْكُلُ ٱلطَّيْرُ مِن رَّأْسِهِۦ ۚ قُضِىَ ٱلْأَمْرُ ٱلَّذِى فِيهِ تَسْتَفْتِيَانِ (41)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>O ihr beiden Insassen des Gefängnisses! Der eine von euch wird seinem Herrn Wein zu trinken geben. Der andere aber wird gekreuzigt, und die Vögel werden von seinem Kopf fressen. Entschieden ist die Angelegenheit, über die ihr um Auskunft fragt.» <span class="verseNumber">(41)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '42'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَقَالَ لِلَّذِى ظَنَّ أَنَّهُۥ نَاجٍۢ مِّنْهُمَا ٱذْكُرْنِى عِندَ رَبِّكَ فَأَنسَىٰهُ ٱلشَّيْطَـٰنُ ذِكْرَ رَبِّهِۦ فَلَبِثَ فِى ٱلسِّجْنِ بِضْعَ سِنِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَقَالَ لِلَّذِى ظَنَّ أَنَّهُۥ نَاجٍۢ مِّنْهُمَا ٱذْكُرْنِى عِندَ رَبِّكَ فَأَنسَىٰهُ ٱلشَّيْطَـٰنُ ذِكْرَ رَبِّهِۦ فَلَبِثَ فِى ٱلسِّجْنِ بِضْعَ سِنِينَ (42)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und er sagte zu dem von ihnen, mit dessen Rettung er rechnete: «Gedenke meiner bei deinem Herrn.» Aber der Satan ließ ihn vergessen, ihn bei seinem Herrn zu erwähnen. So blieb er noch einige Jahre im Gefängnis. <span class="verseNumber">(42)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '43'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَقَالَ ٱلْمَلِكُ إِنِّىٓ أَرَىٰ سَبْعَ بَقَرَٰتٍۢ سِمَانٍۢ يَأْكُلُهُنَّ سَبْعٌ عِجَافٌۭ وَسَبْعَ سُنۢبُلَـٰتٍ خُضْرٍۢ وَأُخَرَ يَابِسَـٰتٍۢ ۖ يَـٰٓأَيُّهَا ٱلْمَلَأُ أَفْتُونِى فِى رُءْيَـٰىَ إِن كُنتُمْ لِلرُّءْيَا تَعْبُرُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَقَالَ ٱلْمَلِكُ إِنِّىٓ أَرَىٰ سَبْعَ بَقَرَٰتٍۢ سِمَانٍۢ يَأْكُلُهُنَّ سَبْعٌ عِجَافٌۭ وَسَبْعَ سُنۢبُلَـٰتٍ خُضْرٍۢ وَأُخَرَ يَابِسَـٰتٍۢ ۖ يَـٰٓأَيُّهَا ٱلْمَلَأُ أَفْتُونِى فِى رُءْيَـٰىَ إِن كُنتُمْ لِلرُّءْيَا تَعْبُرُونَ (43)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und der König sagte: «Ich sah sieben fette Kühe, die von sieben mageren gefressen wurden, und sieben grüne Ähren und (sieben) andere, die verdorrt waren. O ihr Vornehmen, gebt mir Auskunft über mein Traumgesicht, so ihr das Traumgesicht auslegen könnt.» <span class="verseNumber">(43)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '44'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالُوٓا۟ أَضْغَـٰثُ أَحْلَـٰمٍۢ ۖ وَمَا نَحْنُ بِتَأْوِيلِ ٱلْأَحْلَـٰمِ بِعَـٰلِمِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالُوٓا۟ أَضْغَـٰثُ أَحْلَـٰمٍۢ ۖ وَمَا نَحْنُ بِتَأْوِيلِ ٱلْأَحْلَـٰمِ بِعَـٰلِمِينَ (44)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie sagten: «Wirres Bündel von Träumen. Wir wissen über die Deutung der Träume nicht Bescheid.» <span class="verseNumber">(44)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '45'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَقَالَ ٱلَّذِى نَجَا مِنْهُمَا وَٱدَّكَرَ بَعْدَ أُمَّةٍ أَنَا۠ أُنَبِّئُكُم بِتَأْوِيلِهِۦ فَأَرْسِلُونِ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَقَالَ ٱلَّذِى نَجَا مِنْهُمَا وَٱدَّكَرَ بَعْدَ أُمَّةٍ أَنَا۠ أُنَبِّئُكُم بِتَأْوِيلِهِۦ فَأَرْسِلُونِ (45)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Derjenige von ihnen, der gerettet wurde und sich nach einer Weile erinnerte, sagte: «Ich werde euch seine Deutung kundtun. Schickt mich los.» <span class="verseNumber">(45)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '46'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>يُوسُفُ أَيُّهَا ٱلصِّدِّيقُ أَفْتِنَا فِى سَبْعِ بَقَرَٰتٍۢ سِمَانٍۢ يَأْكُلُهُنَّ سَبْعٌ عِجَافٌۭ وَسَبْعِ سُنۢبُلَـٰتٍ خُضْرٍۢ وَأُخَرَ يَابِسَـٰتٍۢ لَّعَلِّىٓ أَرْجِعُ إِلَى ٱلنَّاسِ لَعَلَّهُمْ يَعْلَمُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>يُوسُفُ أَيُّهَا ٱلصِّدِّيقُ أَفْتِنَا فِى سَبْعِ بَقَرَٰتٍۢ سِمَانٍۢ يَأْكُلُهُنَّ سَبْعٌ عِجَافٌۭ وَسَبْعِ سُنۢبُلَـٰتٍ خُضْرٍۢ وَأُخَرَ يَابِسَـٰتٍۢ لَّعَلِّىٓ أَرْجِعُ إِلَى ٱلنَّاسِ لَعَلَّهُمْ يَعْلَمُونَ (46)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>«Josef, du Wahrhaftiger, gib uns Auskunft über sieben fette Kühe, die von sieben mageren gefressen werden, und von sieben grünen Ähren und (sieben) anderen, die verdorrt sind. So mag ich zu den Menschen zurückkehren, auf daß sie Bescheid wissen.» <span class="verseNumber">(46)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '47'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالَ تَزْرَعُونَ سَبْعَ سِنِينَ دَأَبًۭا فَمَا حَصَدتُّمْ فَذَرُوهُ فِى سُنۢبُلِهِۦٓ إِلَّا قَلِيلًۭا مِّمَّا تَأْكُلُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالَ تَزْرَعُونَ سَبْعَ سِنِينَ دَأَبًۭا فَمَا حَصَدتُّمْ فَذَرُوهُ فِى سُنۢبُلِهِۦٓ إِلَّا قَلِيلًۭا مِّمَّا تَأْكُلُونَ (47)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Er sagte: «Ihr werdet sieben Jahre wie gewohnt säen. Was ihr aber erntet, das laßt in seinen Ähren, bis auf einen geringen Teil von dem, was ihr verzehrt. <span class="verseNumber">(47)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '48'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>ثُمَّ يَأْتِى مِنۢ بَعْدِ ذَٰلِكَ سَبْعٌۭ شِدَادٌۭ يَأْكُلْنَ مَا قَدَّمْتُمْ لَهُنَّ إِلَّا قَلِيلًۭا مِّمَّا تُحْصِنُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>ثُمَّ يَأْتِى مِنۢ بَعْدِ ذَٰلِكَ سَبْعٌۭ شِدَادٌۭ يَأْكُلْنَ مَا قَدَّمْتُمْ لَهُنَّ إِلَّا قَلِيلًۭا مِّمَّا تُحْصِنُونَ (48)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Danach werden dann sieben harte (Jahre) kommen, die das verzehren werden, was ihr für sie vorher eingebracht habt, bis auf einen geringen Teil von dem, was ihr aufbewahrt. <span class="verseNumber">(48)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '49'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>ثُمَّ يَأْتِى مِنۢ بَعْدِ ذَٰلِكَ عَامٌۭ فِيهِ يُغَاثُ ٱلنَّاسُ وَفِيهِ يَعْصِرُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>ثُمَّ يَأْتِى مِنۢ بَعْدِ ذَٰلِكَ عَامٌۭ فِيهِ يُغَاثُ ٱلنَّاسُ وَفِيهِ يَعْصِرُونَ (49)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Danach wird dann ein Jahr kommen, in dem die Menschen Regen haben und in dem sie keltern werden.» <span class="verseNumber">(49)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '50'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَقَالَ ٱلْمَلِكُ ٱئْتُونِى بِهِۦ ۖ فَلَمَّا جَآءَهُ ٱلرَّسُولُ قَالَ ٱرْجِعْ إِلَىٰ رَبِّكَ فَسْـَٔلْهُ مَا بَالُ ٱلنِّسْوَةِ ٱلَّـٰتِى قَطَّعْنَ أَيْدِيَهُنَّ ۚ إِنَّ رَبِّى بِكَيْدِهِنَّ عَلِيمٌۭ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَقَالَ ٱلْمَلِكُ ٱئْتُونِى بِهِۦ ۖ فَلَمَّا جَآءَهُ ٱلرَّسُولُ قَالَ ٱرْجِعْ إِلَىٰ رَبِّكَ فَسْـَٔلْهُ مَا بَالُ ٱلنِّسْوَةِ ٱلَّـٰتِى قَطَّعْنَ أَيْدِيَهُنَّ ۚ إِنَّ رَبِّى بِكَيْدِهِنَّ عَلِيمٌۭ (50)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Der König sagte: «Bringt ihn zu mir.» Als der Bote zu ihm kam, sagte er: «Kehr zu deinem Herrn zurück und frag ihn, wie es mit den Frauen steht, die sich in ihre Hände geschnitten haben. Mein Herr weiß doch über ihre List Bescheid.» <span class="verseNumber">(50)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '51'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالَ مَا خَطْبُكُنَّ إِذْ رَٰوَدتُّنَّ يُوسُفَ عَن نَّفْسِهِۦ ۚ قُلْنَ حَـٰشَ لِلَّهِ مَا عَلِمْنَا عَلَيْهِ مِن سُوٓءٍۢ ۚ قَالَتِ ٱمْرَأَتُ ٱلْعَزِيزِ ٱلْـَٔـٰنَ حَصْحَصَ ٱلْحَقُّ أَنَا۠ رَٰوَدتُّهُۥ عَن نَّفْسِهِۦ وَإِنَّهُۥ لَمِنَ ٱلصَّـٰدِقِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالَ مَا خَطْبُكُنَّ إِذْ رَٰوَدتُّنَّ يُوسُفَ عَن نَّفْسِهِۦ ۚ قُلْنَ حَـٰشَ لِلَّهِ مَا عَلِمْنَا عَلَيْهِ مِن سُوٓءٍۢ ۚ قَالَتِ ٱمْرَأَتُ ٱلْعَزِيزِ ٱلْـَٔـٰنَ حَصْحَصَ ٱلْحَقُّ أَنَا۠ رَٰوَدتُّهُۥ عَن نَّفْسِهِۦ وَإِنَّهُۥ لَمِنَ ٱلصَّـٰدِقِينَ (51)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Er sagte: «Was war da mit euch, als ihr versucht habt, Josef zu verführen?» Sie sagten: «Gott bewahre! Wir wissen gegen ihn nichts Böses (anzugeben).» Die Frau des Hochmögenden sagte: «Jetzt ist die Wahrheit offenbar geworden. Ich habe versucht, ihn zu verführen. Und er gehört zu denen, die die Wahrheit sagen.» <span class="verseNumber">(51)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '52'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>ذَٰلِكَ لِيَعْلَمَ أَنِّى لَمْ أَخُنْهُ بِٱلْغَيْبِ وَأَنَّ ٱللَّهَ لَا يَهْدِى كَيْدَ ٱلْخَآئِنِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>ذَٰلِكَ لِيَعْلَمَ أَنِّى لَمْ أَخُنْهُ بِٱلْغَيْبِ وَأَنَّ ٱللَّهَ لَا يَهْدِى كَيْدَ ٱلْخَآئِنِينَ (52)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>(Josef sagte:) «Dies ist, damit er weiß, daß ich ihn nicht in seiner Abwesenheit verraten habe und daß Gott die List der Verräter nicht gelingen läßt. <span class="verseNumber">(52)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '53'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>۞ وَمَآ أُبَرِّئُ نَفْسِىٓ ۚ إِنَّ ٱلنَّفْسَ لَأَمَّارَةٌۢ بِٱلسُّوٓءِ إِلَّا مَا رَحِمَ رَبِّىٓ ۚ إِنَّ رَبِّى غَفُورٌۭ رَّحِيمٌۭ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>۞ وَمَآ أُبَرِّئُ نَفْسِىٓ ۚ إِنَّ ٱلنَّفْسَ لَأَمَّارَةٌۢ بِٱلسُّوٓءِ إِلَّا مَا رَحِمَ رَبِّىٓ ۚ إِنَّ رَبِّى غَفُورٌۭ رَّحِيمٌۭ (53)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und ich erkläre mich nicht selbst für unschuldig. Die Seele gebietet ja mit Nachdruck das Böse, es sei denn, mein Herr erbarmt sich. Mein Herr ist voller Vergebung und barmherzig.» <span class="verseNumber">(53)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '54'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَقَالَ ٱلْمَلِكُ ٱئْتُونِى بِهِۦٓ أَسْتَخْلِصْهُ لِنَفْسِى ۖ فَلَمَّا كَلَّمَهُۥ قَالَ إِنَّكَ ٱلْيَوْمَ لَدَيْنَا مَكِينٌ أَمِينٌۭ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَقَالَ ٱلْمَلِكُ ٱئْتُونِى بِهِۦٓ أَسْتَخْلِصْهُ لِنَفْسِى ۖ فَلَمَّا كَلَّمَهُۥ قَالَ إِنَّكَ ٱلْيَوْمَ لَدَيْنَا مَكِينٌ أَمِينٌۭ (54)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und der König sagte: «Bringt ihn zu mir. Ich will ihn ausschließlich für mich haben.» Als er mit ihm gesprochen hatte, sagte er: «Heute bist du bei uns in angesehener Stellung und genießt unser Vertrauen.» <span class="verseNumber">(54)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '55'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالَ ٱجْعَلْنِى عَلَىٰ خَزَآئِنِ ٱلْأَرْضِ ۖ إِنِّى حَفِيظٌ عَلِيمٌۭ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالَ ٱجْعَلْنِى عَلَىٰ خَزَآئِنِ ٱلْأَرْضِ ۖ إِنِّى حَفِيظٌ عَلِيمٌۭ (55)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Er sagte: «Setze mich über die Vorratskammern des Landes ein. Ich bin ein (guter) Hüter und weiß Bescheid.» <span class="verseNumber">(55)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '56'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَكَذَٰلِكَ مَكَّنَّا لِيُوسُفَ فِى ٱلْأَرْضِ يَتَبَوَّأُ مِنْهَا حَيْثُ يَشَآءُ ۚ نُصِيبُ بِرَحْمَتِنَا مَن نَّشَآءُ ۖ وَلَا نُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَكَذَٰلِكَ مَكَّنَّا لِيُوسُفَ فِى ٱلْأَرْضِ يَتَبَوَّأُ مِنْهَا حَيْثُ يَشَآءُ ۚ نُصِيبُ بِرَحْمَتِنَا مَن نَّشَآءُ ۖ وَلَا نُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ (56)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>So haben Wir dem Josef eine angesehene Stellung im Land gegeben, so daß er darin sich aufhalten konnte, wo er wollte. Wir treffen mit unserer Barmherzigkeit, wen Wir wollen, und Wir lassen den Lohn der Rechtschaffenen nicht verlorengehen. <span class="verseNumber">(56)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '57'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَلَأَجْرُ ٱلْـَٔاخِرَةِ خَيْرٌۭ لِّلَّذِينَ ءَامَنُوا۟ وَكَانُوا۟ يَتَّقُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَلَأَجْرُ ٱلْـَٔاخِرَةِ خَيْرٌۭ لِّلَّذِينَ ءَامَنُوا۟ وَكَانُوا۟ يَتَّقُونَ (57)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und wahrlich, der Lohn des Jenseits ist besser für die, die glauben und gottesfürchtig sind. <span class="verseNumber">(57)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '58'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَجَآءَ إِخْوَةُ يُوسُفَ فَدَخَلُوا۟ عَلَيْهِ فَعَرَفَهُمْ وَهُمْ لَهُۥ مُنكِرُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَجَآءَ إِخْوَةُ يُوسُفَ فَدَخَلُوا۟ عَلَيْهِ فَعَرَفَهُمْ وَهُمْ لَهُۥ مُنكِرُونَ (58)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und die Brüder Josefs kamen und traten bei ihm ein. Er erkannte sie, während sie ihn für einen Unbekannten hielten. <span class="verseNumber">(58)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '59'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَلَمَّا جَهَّزَهُم بِجَهَازِهِمْ قَالَ ٱئْتُونِى بِأَخٍۢ لَّكُم مِّنْ أَبِيكُمْ ۚ أَلَا تَرَوْنَ أَنِّىٓ أُوفِى ٱلْكَيْلَ وَأَنَا۠ خَيْرُ ٱلْمُنزِلِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَلَمَّا جَهَّزَهُم بِجَهَازِهِمْ قَالَ ٱئْتُونِى بِأَخٍۢ لَّكُم مِّنْ أَبِيكُمْ ۚ أَلَا تَرَوْنَ أَنِّىٓ أُوفِى ٱلْكَيْلَ وَأَنَا۠ خَيْرُ ٱلْمُنزِلِينَ (59)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Als er sie nun mit ihrem Bedarf ausgestattet hatte, sagte er: «Bringt mir einen Bruder von euch, (einen) von eurem Vater. Seht ihr nicht, daß ich das Maß voll erstatte und daß ich der beste der Gastgeber bin? <span class="verseNumber">(59)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '60'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>فَإِن لَّمْ تَأْتُونِى بِهِۦ فَلَا كَيْلَ لَكُمْ عِندِى وَلَا تَقْرَبُونِ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>فَإِن لَّمْ تَأْتُونِى بِهِۦ فَلَا كَيْلَ لَكُمْ عِندِى وَلَا تَقْرَبُونِ (60)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Wenn ihr ihn mir nicht bringt, so bekommt ihr bei mir kein Maß mehr, und ihr sollt nicht in meine Nähe treten.» <span class="verseNumber">(60)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '61'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالُوا۟ سَنُرَٰوِدُ عَنْهُ أَبَاهُ وَإِنَّا لَفَـٰعِلُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالُوا۟ سَنُرَٰوِدُ عَنْهُ أَبَاهُ وَإِنَّا لَفَـٰعِلُونَ (61)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie sagten: «Wir werden versuchen, seinen Vater in bezug auf ihn zu überreden, und wir werden es bestimmt tun.» <span class="verseNumber">(61)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '62'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَقَالَ لِفِتْيَـٰنِهِ ٱجْعَلُوا۟ بِضَـٰعَتَهُمْ فِى رِحَالِهِمْ لَعَلَّهُمْ يَعْرِفُونَهَآ إِذَا ٱنقَلَبُوٓا۟ إِلَىٰٓ أَهْلِهِمْ لَعَلَّهُمْ يَرْجِعُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَقَالَ لِفِتْيَـٰنِهِ ٱجْعَلُوا۟ بِضَـٰعَتَهُمْ فِى رِحَالِهِمْ لَعَلَّهُمْ يَعْرِفُونَهَآ إِذَا ٱنقَلَبُوٓا۟ إِلَىٰٓ أَهْلِهِمْ لَعَلَّهُمْ يَرْجِعُونَ (62)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und er sagte zu seinen Knechten: «Steckt auch ihre Tauschware in ihr Gepäck, daß sie sie (wieder) erkennen, wenn sie zu ihren Angehörigen heimgekehrt sind. Vielleicht werden sie dann auch zurückkommen.» <span class="verseNumber">(62)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '63'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>فَلَمَّا رَجَعُوٓا۟ إِلَىٰٓ أَبِيهِمْ قَالُوا۟ يَـٰٓأَبَانَا مُنِعَ مِنَّا ٱلْكَيْلُ فَأَرْسِلْ مَعَنَآ أَخَانَا نَكْتَلْ وَإِنَّا لَهُۥ لَحَـٰفِظُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>فَلَمَّا رَجَعُوٓا۟ إِلَىٰٓ أَبِيهِمْ قَالُوا۟ يَـٰٓأَبَانَا مُنِعَ مِنَّا ٱلْكَيْلُ فَأَرْسِلْ مَعَنَآ أَخَانَا نَكْتَلْ وَإِنَّا لَهُۥ لَحَـٰفِظُونَ (63)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Als sie zu ihrem Vater zurückkamen, sagten sie: «O unser Vater, die (nächste) Zuteilung wurde uns verwehrt. So schick unseren Bruder mit uns, damit wir eine Zuteilung zugemessen bekommen. Und wir werden ihn bestimmt behüten.» <span class="verseNumber">(63)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '64'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالَ هَلْ ءَامَنُكُمْ عَلَيْهِ إِلَّا كَمَآ أَمِنتُكُمْ عَلَىٰٓ أَخِيهِ مِن قَبْلُ ۖ فَٱللَّهُ خَيْرٌ حَـٰفِظًۭا ۖ وَهُوَ أَرْحَمُ ٱلرَّٰحِمِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالَ هَلْ ءَامَنُكُمْ عَلَيْهِ إِلَّا كَمَآ أَمِنتُكُمْ عَلَىٰٓ أَخِيهِ مِن قَبْلُ ۖ فَٱللَّهُ خَيْرٌ حَـٰفِظًۭا ۖ وَهُوَ أَرْحَمُ ٱلرَّٰحِمِينَ (64)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Er sagte: «Kann ich ihn euch etwa anders anvertrauen, als ich euch zuvor seinen Bruder anvertraut habe? Gott ist der beste Hüter, und Er ist der Barmherzigste der Barmherzigen.» <span class="verseNumber">(64)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '65'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَلَمَّا فَتَحُوا۟ مَتَـٰعَهُمْ وَجَدُوا۟ بِضَـٰعَتَهُمْ رُدَّتْ إِلَيْهِمْ ۖ قَالُوا۟ يَـٰٓأَبَانَا مَا نَبْغِى ۖ هَـٰذِهِۦ بِضَـٰعَتُنَا رُدَّتْ إِلَيْنَا ۖ وَنَمِيرُ أَهْلَنَا وَنَحْفَظُ أَخَانَا وَنَزْدَادُ كَيْلَ بَعِيرٍۢ ۖ ذَٰلِكَ كَيْلٌۭ يَسِيرٌۭ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَلَمَّا فَتَحُوا۟ مَتَـٰعَهُمْ وَجَدُوا۟ بِضَـٰعَتَهُمْ رُدَّتْ إِلَيْهِمْ ۖ قَالُوا۟ يَـٰٓأَبَانَا مَا نَبْغِى ۖ هَـٰذِهِۦ بِضَـٰعَتُنَا رُدَّتْ إِلَيْنَا ۖ وَنَمِيرُ أَهْلَنَا وَنَحْفَظُ أَخَانَا وَنَزْدَادُ كَيْلَ بَعِيرٍۢ ۖ ذَٰلِكَ كَيْلٌۭ يَسِيرٌۭ (65)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und als sie ihre Sachen öffneten, fanden sie, daß ihre Tauschware ihnen zurückgegeben worden war. Sie sagten: «O unser Vater, was wünschen wir mehr? Das ist unsere Tauschware, sie ist uns zurückgegeben worden. Wir werden Vorrat für unsere Angehörigen bringen, unseren Bruder behüten und die Last eines Kamels mehr zugemessen bekommen. Das ist ein leicht zu erhaltendes Maß.» <span class="verseNumber">(65)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '66'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالَ لَنْ أُرْسِلَهُۥ مَعَكُمْ حَتَّىٰ تُؤْتُونِ مَوْثِقًۭا مِّنَ ٱللَّهِ لَتَأْتُنَّنِى بِهِۦٓ إِلَّآ أَن يُحَاطَ بِكُمْ ۖ فَلَمَّآ ءَاتَوْهُ مَوْثِقَهُمْ قَالَ ٱللَّهُ عَلَىٰ مَا نَقُولُ وَكِيلٌۭ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالَ لَنْ أُرْسِلَهُۥ مَعَكُمْ حَتَّىٰ تُؤْتُونِ مَوْثِقًۭا مِّنَ ٱللَّهِ لَتَأْتُنَّنِى بِهِۦٓ إِلَّآ أَن يُحَاطَ بِكُمْ ۖ فَلَمَّآ ءَاتَوْهُ مَوْثِقَهُمْ قَالَ ٱللَّهُ عَلَىٰ مَا نَقُولُ وَكِيلٌۭ (66)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Er sagte: «Ich werde ihn nicht mit euch schicken, bis ihr mir ein verbindliches Versprechen vor Gott gebt, daß ihr ihn mir zurückbringt, es sei denn, ihr werdet umringt.» Als sie ihm ihr verbindliches Versprechen gegeben hatten, sagte er: «Gott ist Sachwalter über das, was wir (hier) sagen.» <span class="verseNumber">(66)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '67'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَقَالَ يَـٰبَنِىَّ لَا تَدْخُلُوا۟ مِنۢ بَابٍۢ وَٰحِدٍۢ وَٱدْخُلُوا۟ مِنْ أَبْوَٰبٍۢ مُّتَفَرِّقَةٍۢ ۖ وَمَآ أُغْنِى عَنكُم مِّنَ ٱللَّهِ مِن شَىْءٍ ۖ إِنِ ٱلْحُكْمُ إِلَّا لِلَّهِ ۖ عَلَيْهِ تَوَكَّلْتُ ۖ وَعَلَيْهِ فَلْيَتَوَكَّلِ ٱلْمُتَوَكِّلُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَقَالَ يَـٰبَنِىَّ لَا تَدْخُلُوا۟ مِنۢ بَابٍۢ وَٰحِدٍۢ وَٱدْخُلُوا۟ مِنْ أَبْوَٰبٍۢ مُّتَفَرِّقَةٍۢ ۖ وَمَآ أُغْنِى عَنكُم مِّنَ ٱللَّهِ مِن شَىْءٍ ۖ إِنِ ٱلْحُكْمُ إِلَّا لِلَّهِ ۖ عَلَيْهِ تَوَكَّلْتُ ۖ وَعَلَيْهِ فَلْيَتَوَكَّلِ ٱلْمُتَوَكِّلُونَ (67)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und er sagte: «O meine Söhne, geht nicht durch ein einziges Tor hinein. Geht durch verschiedene Tore hinein. Ich kann euch vor Gott nichts nützen. Das Urteil gehört Gott allein. Auf Ihn vertraue ich. Auf Ihn sollen die vertrauen, die (überhaupt auf jemanden) vertrauen.» <span class="verseNumber">(67)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '68'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَلَمَّا دَخَلُوا۟ مِنْ حَيْثُ أَمَرَهُمْ أَبُوهُم مَّا كَانَ يُغْنِى عَنْهُم مِّنَ ٱللَّهِ مِن شَىْءٍ إِلَّا حَاجَةًۭ فِى نَفْسِ يَعْقُوبَ قَضَىٰهَا ۚ وَإِنَّهُۥ لَذُو عِلْمٍۢ لِّمَا عَلَّمْنَـٰهُ وَلَـٰكِنَّ أَكْثَرَ ٱلنَّاسِ لَا يَعْلَمُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَلَمَّا دَخَلُوا۟ مِنْ حَيْثُ أَمَرَهُمْ أَبُوهُم مَّا كَانَ يُغْنِى عَنْهُم مِّنَ ٱللَّهِ مِن شَىْءٍ إِلَّا حَاجَةًۭ فِى نَفْسِ يَعْقُوبَ قَضَىٰهَا ۚ وَإِنَّهُۥ لَذُو عِلْمٍۢ لِّمَا عَلَّمْنَـٰهُ وَلَـٰكِنَّ أَكْثَرَ ٱلنَّاسِ لَا يَعْلَمُونَ (68)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Als sie hineingingen, wie ihr Vater ihnen befohlen hatte, hat es ihnen vor Gott nichts genützt. Es war nur ein Bedürfnis in der Seele Jakobs, das er (damit) erfüllte. Und er besaß Wissen, weil Wir es ihn gelehrt hatten. Aber die meisten Menschen wissen nicht Bescheid. <span class="verseNumber">(68)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '69'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَلَمَّا دَخَلُوا۟ عَلَىٰ يُوسُفَ ءَاوَىٰٓ إِلَيْهِ أَخَاهُ ۖ قَالَ إِنِّىٓ أَنَا۠ أَخُوكَ فَلَا تَبْتَئِسْ بِمَا كَانُوا۟ يَعْمَلُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَلَمَّا دَخَلُوا۟ عَلَىٰ يُوسُفَ ءَاوَىٰٓ إِلَيْهِ أَخَاهُ ۖ قَالَ إِنِّىٓ أَنَا۠ أَخُوكَ فَلَا تَبْتَئِسْ بِمَا كَانُوا۟ يَعْمَلُونَ (69)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Als sie bei Josef eintraten, zog er seinen Bruder zu sich. Er sagte: «Ich, ich bin dein Bruder. So sei nicht betrübt wegen dessen, was sie taten.» <span class="verseNumber">(69)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '70'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>فَلَمَّا جَهَّزَهُم بِجَهَازِهِمْ جَعَلَ ٱلسِّقَايَةَ فِى رَحْلِ أَخِيهِ ثُمَّ أَذَّنَ مُؤَذِّنٌ أَيَّتُهَا ٱلْعِيرُ إِنَّكُمْ لَسَـٰرِقُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>فَلَمَّا جَهَّزَهُم بِجَهَازِهِمْ جَعَلَ ٱلسِّقَايَةَ فِى رَحْلِ أَخِيهِ ثُمَّ أَذَّنَ مُؤَذِّنٌ أَيَّتُهَا ٱلْعِيرُ إِنَّكُمْ لَسَـٰرِقُونَ (70)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Als er sie nun mit ihrem Bedarf ausgestattet hatte, tat er das Trinkgefäß in das Gepäck seines Bruders. Dann rief ein Rufer aus: «Ihr da von der Karawane, ihr seid ja Diebe.» <span class="verseNumber">(70)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '71'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالُوا۟ وَأَقْبَلُوا۟ عَلَيْهِم مَّاذَا تَفْقِدُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالُوا۟ وَأَقْبَلُوا۟ عَلَيْهِم مَّاذَا تَفْقِدُونَ (71)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie sagten, während sie auf sie zugingen: «Was vermißt ihr?» <span class="verseNumber">(71)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '72'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالُوا۟ نَفْقِدُ صُوَاعَ ٱلْمَلِكِ وَلِمَن جَآءَ بِهِۦ حِمْلُ بَعِيرٍۢ وَأَنَا۠ بِهِۦ زَعِيمٌۭ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالُوا۟ نَفْقِدُ صُوَاعَ ٱلْمَلِكِ وَلِمَن جَآءَ بِهِۦ حِمْلُ بَعِيرٍۢ وَأَنَا۠ بِهِۦ زَعِيمٌۭ (72)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie sagten: «Wir vermissen den Pokal des Königs. Wer ihn zurückbringt, erhält die Last eines Kamels, und dafür bin ich Bürge.» <span class="verseNumber">(72)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '73'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالُوا۟ تَٱللَّهِ لَقَدْ عَلِمْتُم مَّا جِئْنَا لِنُفْسِدَ فِى ٱلْأَرْضِ وَمَا كُنَّا سَـٰرِقِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالُوا۟ تَٱللَّهِ لَقَدْ عَلِمْتُم مَّا جِئْنَا لِنُفْسِدَ فِى ٱلْأَرْضِ وَمَا كُنَّا سَـٰرِقِينَ (73)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie sagten: «Bei Gott, ihr wißt es, wir sind nicht gekommen, um im Land Unheil zu stiften, und wir sind keine Diebe.» <span class="verseNumber">(73)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '74'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالُوا۟ فَمَا جَزَٰٓؤُهُۥٓ إِن كُنتُمْ كَـٰذِبِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالُوا۟ فَمَا جَزَٰٓؤُهُۥٓ إِن كُنتُمْ كَـٰذِبِينَ (74)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie sagten: «Was ist die Vergeltung dafür, wenn ihr lügt?» <span class="verseNumber">(74)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '75'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالُوا۟ جَزَٰٓؤُهُۥ مَن وُجِدَ فِى رَحْلِهِۦ فَهُوَ جَزَٰٓؤُهُۥ ۚ كَذَٰلِكَ نَجْزِى ٱلظَّـٰلِمِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالُوا۟ جَزَٰٓؤُهُۥ مَن وُجِدَ فِى رَحْلِهِۦ فَهُوَ جَزَٰٓؤُهُۥ ۚ كَذَٰلِكَ نَجْزِى ٱلظَّـٰلِمِينَ (75)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie sagten: «Die Vergeltung dafür ist, daß der, in dessen Gepäck er gefunden wird, selbst als Entgelt dafür dienen soll. So vergelten wir denen, die Unrecht tun.» <span class="verseNumber">(75)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '76'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>فَبَدَأَ بِأَوْعِيَتِهِمْ قَبْلَ وِعَآءِ أَخِيهِ ثُمَّ ٱسْتَخْرَجَهَا مِن وِعَآءِ أَخِيهِ ۚ كَذَٰلِكَ كِدْنَا لِيُوسُفَ ۖ مَا كَانَ لِيَأْخُذَ أَخَاهُ فِى دِينِ ٱلْمَلِكِ إِلَّآ أَن يَشَآءَ ٱللَّهُ ۚ نَرْفَعُ دَرَجَـٰتٍۢ مَّن نَّشَآءُ ۗ وَفَوْقَ كُلِّ ذِى عِلْمٍ عَلِيمٌۭ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>فَبَدَأَ بِأَوْعِيَتِهِمْ قَبْلَ وِعَآءِ أَخِيهِ ثُمَّ ٱسْتَخْرَجَهَا مِن وِعَآءِ أَخِيهِ ۚ كَذَٰلِكَ كِدْنَا لِيُوسُفَ ۖ مَا كَانَ لِيَأْخُذَ أَخَاهُ فِى دِينِ ٱلْمَلِكِ إِلَّآ أَن يَشَآءَ ٱللَّهُ ۚ نَرْفَعُ دَرَجَـٰتٍۢ مَّن نَّشَآءُ ۗ وَفَوْقَ كُلِّ ذِى عِلْمٍ عَلِيمٌۭ (76)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Er begann (zu suchen) in ihren Behältern vor dem Behälter seines Bruders. Dann holte er ihn aus dem Behälter seines Bruders. So führten Wir für Josef eine List aus. Nach der Religion des Königs hätte er unmöglich seinen Bruder (als Sklaven) nehmen können, es sei denn, daß es Gott wollte. Wir erhöhen, wen Wir wollen, um Rangstufen. Und über jedem, der Wissen besitzt, steht einer, der (noch mehr) weiß. <span class="verseNumber">(76)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '77'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>۞ قَالُوٓا۟ إِن يَسْرِقْ فَقَدْ سَرَقَ أَخٌۭ لَّهُۥ مِن قَبْلُ ۚ فَأَسَرَّهَا يُوسُفُ فِى نَفْسِهِۦ وَلَمْ يُبْدِهَا لَهُمْ ۚ قَالَ أَنتُمْ شَرٌّۭ مَّكَانًۭا ۖ وَٱللَّهُ أَعْلَمُ بِمَا تَصِفُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>۞ قَالُوٓا۟ إِن يَسْرِقْ فَقَدْ سَرَقَ أَخٌۭ لَّهُۥ مِن قَبْلُ ۚ فَأَسَرَّهَا يُوسُفُ فِى نَفْسِهِۦ وَلَمْ يُبْدِهَا لَهُمْ ۚ قَالَ أَنتُمْ شَرٌّۭ مَّكَانًۭا ۖ وَٱللَّهُ أَعْلَمُ بِمَا تَصِفُونَ (77)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie sagten: «Wenn er stiehlt, so hat auch ein Bruder von ihm zuvor gestohlen.» Josef hielt es in seinem Inneren geheim und zeigte es ihnen nicht offen. Er sagte: «Ihr seid noch schlimmer daran. Und Gott weiß besser, was ihr beschreibt.» <span class="verseNumber">(77)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '78'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالُوا۟ يَـٰٓأَيُّهَا ٱلْعَزِيزُ إِنَّ لَهُۥٓ أَبًۭا شَيْخًۭا كَبِيرًۭا فَخُذْ أَحَدَنَا مَكَانَهُۥٓ ۖ إِنَّا نَرَىٰكَ مِنَ ٱلْمُحْسِنِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالُوا۟ يَـٰٓأَيُّهَا ٱلْعَزِيزُ إِنَّ لَهُۥٓ أَبًۭا شَيْخًۭا كَبِيرًۭا فَخُذْ أَحَدَنَا مَكَانَهُۥٓ ۖ إِنَّا نَرَىٰكَ مِنَ ٱلْمُحْسِنِينَ (78)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie sagten: «O Hochmögender, er hat einen Vater, einen hochbetagten Greis. So nimm einen von uns an seiner Stelle. Wir sehen, daß du einer der Rechtschaffenen bist.» <span class="verseNumber">(78)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '79'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالَ مَعَاذَ ٱللَّهِ أَن نَّأْخُذَ إِلَّا مَن وَجَدْنَا مَتَـٰعَنَا عِندَهُۥٓ إِنَّآ إِذًۭا لَّظَـٰلِمُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالَ مَعَاذَ ٱللَّهِ أَن نَّأْخُذَ إِلَّا مَن وَجَدْنَا مَتَـٰعَنَا عِندَهُۥٓ إِنَّآ إِذًۭا لَّظَـٰلِمُونَ (79)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Er sagte: «Gott behüte, daß wir einen anderen nehmen als den, bei dem wir unsere Sachen gefunden haben! Sonst würden wir zu denen gehören, die Unrecht tun.» <span class="verseNumber">(79)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '80'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>فَلَمَّا ٱسْتَيْـَٔسُوا۟ مِنْهُ خَلَصُوا۟ نَجِيًّۭا ۖ قَالَ كَبِيرُهُمْ أَلَمْ تَعْلَمُوٓا۟ أَنَّ أَبَاكُمْ قَدْ أَخَذَ عَلَيْكُم مَّوْثِقًۭا مِّنَ ٱللَّهِ وَمِن قَبْلُ مَا فَرَّطتُمْ فِى يُوسُفَ ۖ فَلَنْ أَبْرَحَ ٱلْأَرْضَ حَتَّىٰ يَأْذَنَ لِىٓ أَبِىٓ أَوْ يَحْكُمَ ٱللَّهُ لِى ۖ وَهُوَ خَيْرُ ٱلْحَـٰكِمِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>فَلَمَّا ٱسْتَيْـَٔسُوا۟ مِنْهُ خَلَصُوا۟ نَجِيًّۭا ۖ قَالَ كَبِيرُهُمْ أَلَمْ تَعْلَمُوٓا۟ أَنَّ أَبَاكُمْ قَدْ أَخَذَ عَلَيْكُم مَّوْثِقًۭا مِّنَ ٱللَّهِ وَمِن قَبْلُ مَا فَرَّطتُمْ فِى يُوسُفَ ۖ فَلَنْ أَبْرَحَ ٱلْأَرْضَ حَتَّىٰ يَأْذَنَ لِىٓ أَبِىٓ أَوْ يَحْكُمَ ٱللَّهُ لِى ۖ وَهُوَ خَيْرُ ٱلْحَـٰكِمِينَ (80)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Als sie an ihm jede Hoffnung verloren hatten, gingen sie zu einem vertraulichen Gespräch unter sich. Der Älteste von ihnen sagte: «Wißt ihr nicht, daß euer Vater von euch ein verbindliches Versprechen vor Gott entgegengenommen hat, und daß ihr zuvor eure Pflicht in bezug auf Josef nicht erfüllt habt? Ich werde das Land nicht verlassen, bis mein Vater es mir erlaubt oder Gott ein Urteil für mich fällt, und Er ist der Beste derer, die Urteile fällen. <span class="verseNumber">(80)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '81'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>ٱرْجِعُوٓا۟ إِلَىٰٓ أَبِيكُمْ فَقُولُوا۟ يَـٰٓأَبَانَآ إِنَّ ٱبْنَكَ سَرَقَ وَمَا شَهِدْنَآ إِلَّا بِمَا عَلِمْنَا وَمَا كُنَّا لِلْغَيْبِ حَـٰفِظِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>ٱرْجِعُوٓا۟ إِلَىٰٓ أَبِيكُمْ فَقُولُوا۟ يَـٰٓأَبَانَآ إِنَّ ٱبْنَكَ سَرَقَ وَمَا شَهِدْنَآ إِلَّا بِمَا عَلِمْنَا وَمَا كُنَّا لِلْغَيْبِ حَـٰفِظِينَ (81)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Kehrt zu eurem Vater zurück und sagt: &gt;O unser Vater, dein Sohn hat gestohlen, und wir bezeugen nur das, was wir wissen, und wir können nicht Hüter sein über das, was verborgen ist. <span class="verseNumber">(81)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '82'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَسْـَٔلِ ٱلْقَرْيَةَ ٱلَّتِى كُنَّا فِيهَا وَٱلْعِيرَ ٱلَّتِىٓ أَقْبَلْنَا فِيهَا ۖ وَإِنَّا لَصَـٰدِقُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَسْـَٔلِ ٱلْقَرْيَةَ ٱلَّتِى كُنَّا فِيهَا وَٱلْعِيرَ ٱلَّتِىٓ أَقْبَلْنَا فِيهَا ۖ وَإِنَّا لَصَـٰدِقُونَ (82)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und frag die Stadt, in der wir waren, und die Karawane, mit der wir gekommen sind. Wir sagen ja die Wahrheit. <span class="verseNumber">(82)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '83'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالَ بَلْ سَوَّلَتْ لَكُمْ أَنفُسُكُمْ أَمْرًۭا ۖ فَصَبْرٌۭ جَمِيلٌ ۖ عَسَى ٱللَّهُ أَن يَأْتِيَنِى بِهِمْ جَمِيعًا ۚ إِنَّهُۥ هُوَ ٱلْعَلِيمُ ٱلْحَكِيمُ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالَ بَلْ سَوَّلَتْ لَكُمْ أَنفُسُكُمْ أَمْرًۭا ۖ فَصَبْرٌۭ جَمِيلٌ ۖ عَسَى ٱللَّهُ أَن يَأْتِيَنِى بِهِمْ جَمِيعًا ۚ إِنَّهُۥ هُوَ ٱلْعَلِيمُ ٱلْحَكِيمُ (83)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Er sagte: «Eure Seele hat euch etwas eingeredet. (Es gilt) schöne Geduld (zu üben). Möge Gott sie mir alle zurückbringen! Er ist der, der alles weiß und weise ist.» <span class="verseNumber">(83)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '84'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَتَوَلَّىٰ عَنْهُمْ وَقَالَ يَـٰٓأَسَفَىٰ عَلَىٰ يُوسُفَ وَٱبْيَضَّتْ عَيْنَاهُ مِنَ ٱلْحُزْنِ فَهُوَ كَظِيمٌۭ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَتَوَلَّىٰ عَنْهُمْ وَقَالَ يَـٰٓأَسَفَىٰ عَلَىٰ يُوسُفَ وَٱبْيَضَّتْ عَيْنَاهُ مِنَ ٱلْحُزْنِ فَهُوَ كَظِيمٌۭ (84)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und er kehrte sich von ihnen ab und sagte: «O wie voller Gram bin ich um Josef!» Und seine Augen wurden weiß vor Trauer, und er unterdrückte (seinen Groll). <span class="verseNumber">(84)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '85'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالُوا۟ تَٱللَّهِ تَفْتَؤُا۟ تَذْكُرُ يُوسُفَ حَتَّىٰ تَكُونَ حَرَضًا أَوْ تَكُونَ مِنَ ٱلْهَـٰلِكِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالُوا۟ تَٱللَّهِ تَفْتَؤُا۟ تَذْكُرُ يُوسُفَ حَتَّىٰ تَكُونَ حَرَضًا أَوْ تَكُونَ مِنَ ٱلْهَـٰلِكِينَ (85)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie sagten: «Bei Gott, du hörst nicht auf, des Josef zu gedenken, bis du bald zusammenbrichst oder zu denen gehörst, die zugrunde gehen.» <span class="verseNumber">(85)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '86'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالَ إِنَّمَآ أَشْكُوا۟ بَثِّى وَحُزْنِىٓ إِلَى ٱللَّهِ وَأَعْلَمُ مِنَ ٱللَّهِ مَا لَا تَعْلَمُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالَ إِنَّمَآ أَشْكُوا۟ بَثِّى وَحُزْنِىٓ إِلَى ٱللَّهِ وَأَعْلَمُ مِنَ ٱللَّهِ مَا لَا تَعْلَمُونَ (86)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Er sagte: «Ich klage ja meinen Kummer und meine Trauer Gott allein, und ich weiß von Gott, was ihr nicht wißt. <span class="verseNumber">(86)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '87'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>يَـٰبَنِىَّ ٱذْهَبُوا۟ فَتَحَسَّسُوا۟ مِن يُوسُفَ وَأَخِيهِ وَلَا تَا۟يْـَٔسُوا۟ مِن رَّوْحِ ٱللَّهِ ۖ إِنَّهُۥ لَا يَا۟يْـَٔسُ مِن رَّوْحِ ٱللَّهِ إِلَّا ٱلْقَوْمُ ٱلْكَـٰفِرُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>يَـٰبَنِىَّ ٱذْهَبُوا۟ فَتَحَسَّسُوا۟ مِن يُوسُفَ وَأَخِيهِ وَلَا تَا۟يْـَٔسُوا۟ مِن رَّوْحِ ٱللَّهِ ۖ إِنَّهُۥ لَا يَا۟يْـَٔسُ مِن رَّوْحِ ٱللَّهِ إِلَّا ٱلْقَوْمُ ٱلْكَـٰفِرُونَ (87)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>O meine Söhne, geht und erkundigt euch über Josef und seinen Bruder. Und verliert nicht die Hoffnung, daß Gott Aufatmen verschafft. Die Hoffnung, daß Gott Aufatmen verschafft, verlieren nur die ungläubigen Leute.» <span class="verseNumber">(87)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '88'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>فَلَمَّا دَخَلُوا۟ عَلَيْهِ قَالُوا۟ يَـٰٓأَيُّهَا ٱلْعَزِيزُ مَسَّنَا وَأَهْلَنَا ٱلضُّرُّ وَجِئْنَا بِبِضَـٰعَةٍۢ مُّزْجَىٰةٍۢ فَأَوْفِ لَنَا ٱلْكَيْلَ وَتَصَدَّقْ عَلَيْنَآ ۖ إِنَّ ٱللَّهَ يَجْزِى ٱلْمُتَصَدِّقِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>فَلَمَّا دَخَلُوا۟ عَلَيْهِ قَالُوا۟ يَـٰٓأَيُّهَا ٱلْعَزِيزُ مَسَّنَا وَأَهْلَنَا ٱلضُّرُّ وَجِئْنَا بِبِضَـٰعَةٍۢ مُّزْجَىٰةٍۢ فَأَوْفِ لَنَا ٱلْكَيْلَ وَتَصَدَّقْ عَلَيْنَآ ۖ إِنَّ ٱللَّهَ يَجْزِى ٱلْمُتَصَدِّقِينَ (88)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Als sie (wieder) bei ihm eintraten, sagten sie: «O Hochmögender, Not hat uns und unsere Angehörigen erfaßt. Und wir haben (nur) eine zusammengewürfelte Ware gebracht. So erstatte uns (dennoch) volles Maß und gib es uns als Almosen. Gott vergilt denen, die Almosen geben.» <span class="verseNumber">(88)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '89'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالَ هَلْ عَلِمْتُم مَّا فَعَلْتُم بِيُوسُفَ وَأَخِيهِ إِذْ أَنتُمْ جَـٰهِلُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالَ هَلْ عَلِمْتُم مَّا فَعَلْتُم بِيُوسُفَ وَأَخِيهِ إِذْ أَنتُمْ جَـٰهِلُونَ (89)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Er sagte: «Wißt ihr (noch), was ihr Josef und seinem Bruder angetan habt, als ihr töricht gehandelt habt?» <span class="verseNumber">(89)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '90'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالُوٓا۟ أَءِنَّكَ لَأَنتَ يُوسُفُ ۖ قَالَ أَنَا۠ يُوسُفُ وَهَـٰذَآ أَخِى ۖ قَدْ مَنَّ ٱللَّهُ عَلَيْنَآ ۖ إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالُوٓا۟ أَءِنَّكَ لَأَنتَ يُوسُفُ ۖ قَالَ أَنَا۠ يُوسُفُ وَهَـٰذَآ أَخِى ۖ قَدْ مَنَّ ٱللَّهُ عَلَيْنَآ ۖ إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ (90)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie sagten: «Bist du denn wirklich Josef?» Er sagte: «Ich bin Josef, und das ist mein Bruder. Gott hat uns eine Wohltat erwiesen. Wahrlich, wenn einer gottesfürchtig und geduldig ist, so läßt Gott den Lohn der Rechtschaffenen nicht verlorengehen.» <span class="verseNumber">(90)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '91'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالُوا۟ تَٱللَّهِ لَقَدْ ءَاثَرَكَ ٱللَّهُ عَلَيْنَا وَإِن كُنَّا لَخَـٰطِـِٔينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالُوا۟ تَٱللَّهِ لَقَدْ ءَاثَرَكَ ٱللَّهُ عَلَيْنَا وَإِن كُنَّا لَخَـٰطِـِٔينَ (91)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie sagten: «Bei Gott, Gott hat dich vor uns bevorzugt. Und wir haben bestimmt gesündigt.» <span class="verseNumber">(91)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '92'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالَ لَا تَثْرِيبَ عَلَيْكُمُ ٱلْيَوْمَ ۖ يَغْفِرُ ٱللَّهُ لَكُمْ ۖ وَهُوَ أَرْحَمُ ٱلرَّٰحِمِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالَ لَا تَثْرِيبَ عَلَيْكُمُ ٱلْيَوْمَ ۖ يَغْفِرُ ٱللَّهُ لَكُمْ ۖ وَهُوَ أَرْحَمُ ٱلرَّٰحِمِينَ (92)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Er sagte: «Keine Schelte soll heute über euch kommen. Gott vergibt euch, Er ist ja der Barmherzigste der Barmherzigen. <span class="verseNumber">(92)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '93'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>ٱذْهَبُوا۟ بِقَمِيصِى هَـٰذَا فَأَلْقُوهُ عَلَىٰ وَجْهِ أَبِى يَأْتِ بَصِيرًۭا وَأْتُونِى بِأَهْلِكُمْ أَجْمَعِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>ٱذْهَبُوا۟ بِقَمِيصِى هَـٰذَا فَأَلْقُوهُ عَلَىٰ وَجْهِ أَبِى يَأْتِ بَصِيرًۭا وَأْتُونِى بِأَهْلِكُمْ أَجْمَعِينَ (93)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Nehmt dieses mein Hemd mit und legt es auf das Gesicht meines Vaters, dann wird er wieder sehen können. Und bringt alle eure Angehörigen zu mir.» <span class="verseNumber">(93)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '94'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَلَمَّا فَصَلَتِ ٱلْعِيرُ قَالَ أَبُوهُمْ إِنِّى لَأَجِدُ رِيحَ يُوسُفَ ۖ لَوْلَآ أَن تُفَنِّدُونِ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَلَمَّا فَصَلَتِ ٱلْعِيرُ قَالَ أَبُوهُمْ إِنِّى لَأَجِدُ رِيحَ يُوسُفَ ۖ لَوْلَآ أَن تُفَنِّدُونِ (94)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Als nun die Karawane aufbrach, sagte ihr Vater: «Wahrlich, ich spüre Josefs Geruch. Wenn ihr nur nicht (meine Worte) als dummes Gerede zurückweisen würdet!» <span class="verseNumber">(94)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '95'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالُوا۟ تَٱللَّهِ إِنَّكَ لَفِى ضَلَـٰلِكَ ٱلْقَدِيمِ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالُوا۟ تَٱللَّهِ إِنَّكَ لَفِى ضَلَـٰلِكَ ٱلْقَدِيمِ (95)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie sagten: «Bei Gott, du befindest dich in deinem alten Irrtum.» <span class="verseNumber">(95)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '96'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>فَلَمَّآ أَن جَآءَ ٱلْبَشِيرُ أَلْقَىٰهُ عَلَىٰ وَجْهِهِۦ فَٱرْتَدَّ بَصِيرًۭا ۖ قَالَ أَلَمْ أَقُل لَّكُمْ إِنِّىٓ أَعْلَمُ مِنَ ٱللَّهِ مَا لَا تَعْلَمُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>فَلَمَّآ أَن جَآءَ ٱلْبَشِيرُ أَلْقَىٰهُ عَلَىٰ وَجْهِهِۦ فَٱرْتَدَّ بَصِيرًۭا ۖ قَالَ أَلَمْ أَقُل لَّكُمْ إِنِّىٓ أَعْلَمُ مِنَ ٱللَّهِ مَا لَا تَعْلَمُونَ (96)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Als nun der Freudenbote kam, legte er es auf sein Gesicht, und er konnte wieder sehen. Er sagte: «Habe ich euch nicht gesagt, daß ich von Gott weiß, was ihr nicht wißt?» <span class="verseNumber">(96)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '97'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالُوا۟ يَـٰٓأَبَانَا ٱسْتَغْفِرْ لَنَا ذُنُوبَنَآ إِنَّا كُنَّا خَـٰطِـِٔينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالُوا۟ يَـٰٓأَبَانَا ٱسْتَغْفِرْ لَنَا ذُنُوبَنَآ إِنَّا كُنَّا خَـٰطِـِٔينَ (97)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sie sagten: «O unser Vater, bitte für uns um Vergebung unserer Sünden. Wir haben ja gesündigt.» <span class="verseNumber">(97)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '98'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قَالَ سَوْفَ أَسْتَغْفِرُ لَكُمْ رَبِّىٓ ۖ إِنَّهُۥ هُوَ ٱلْغَفُورُ ٱلرَّحِيمُ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قَالَ سَوْفَ أَسْتَغْفِرُ لَكُمْ رَبِّىٓ ۖ إِنَّهُۥ هُوَ ٱلْغَفُورُ ٱلرَّحِيمُ (98)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Er sagte: «Ich werde meinen Herrn um Vergebung für euch bitten. Er ist der, der voller Vergebung und barmherzig ist.» <span class="verseNumber">(98)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '99'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>فَلَمَّا دَخَلُوا۟ عَلَىٰ يُوسُفَ ءَاوَىٰٓ إِلَيْهِ أَبَوَيْهِ وَقَالَ ٱدْخُلُوا۟ مِصْرَ إِن شَآءَ ٱللَّهُ ءَامِنِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>فَلَمَّا دَخَلُوا۟ عَلَىٰ يُوسُفَ ءَاوَىٰٓ إِلَيْهِ أَبَوَيْهِ وَقَالَ ٱدْخُلُوا۟ مِصْرَ إِن شَآءَ ٱللَّهُ ءَامِنِينَ (99)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Als sie nun bei Josef eintraten, zog er seine Eltern an sich und sagte: «Betretet Ägypten, so Gott will, in Sicherheit.» <span class="verseNumber">(99)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '100'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَرَفَعَ أَبَوَيْهِ عَلَى ٱلْعَرْشِ وَخَرُّوا۟ لَهُۥ سُجَّدًۭا ۖ وَقَالَ يَـٰٓأَبَتِ هَـٰذَا تَأْوِيلُ رُءْيَـٰىَ مِن قَبْلُ قَدْ جَعَلَهَا رَبِّى حَقًّۭا ۖ وَقَدْ أَحْسَنَ بِىٓ إِذْ أَخْرَجَنِى مِنَ ٱلسِّجْنِ وَجَآءَ بِكُم مِّنَ ٱلْبَدْوِ مِنۢ بَعْدِ أَن نَّزَغَ ٱلشَّيْطَـٰنُ بَيْنِى وَبَيْنَ إِخْوَتِىٓ ۚ إِنَّ رَبِّى لَطِيفٌۭ لِّمَا يَشَآءُ ۚ إِنَّهُۥ هُوَ ٱلْعَلِيمُ ٱلْحَكِيمُ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَرَفَعَ أَبَوَيْهِ عَلَى ٱلْعَرْشِ وَخَرُّوا۟ لَهُۥ سُجَّدًۭا ۖ وَقَالَ يَـٰٓأَبَتِ هَـٰذَا تَأْوِيلُ رُءْيَـٰىَ مِن قَبْلُ قَدْ جَعَلَهَا رَبِّى حَقًّۭا ۖ وَقَدْ أَحْسَنَ بِىٓ إِذْ أَخْرَجَنِى مِنَ ٱلسِّجْنِ وَجَآءَ بِكُم مِّنَ ٱلْبَدْوِ مِنۢ بَعْدِ أَن نَّزَغَ ٱلشَّيْطَـٰنُ بَيْنِى وَبَيْنَ إِخْوَتِىٓ ۚ إِنَّ رَبِّى لَطِيفٌۭ لِّمَا يَشَآءُ ۚ إِنَّهُۥ هُوَ ٱلْعَلِيمُ ٱلْحَكِيمُ (100)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und er erhob seine Eltern auf den Thron. Und sie warfen sich vor ihm nieder. Er sagte: «O mein Vater, das ist die Deutung meines Traumgesichts von früher. Mein Herr hat es wahr gemacht. Und Er hat mir Gutes erwiesen, als Er mich aus dem Gefängnis herauskommen ließ und euch aus der Steppe hierher brachte, nachdem der Satan zwischen mir und meinen Brüdern (zu Zwietracht) aufgestachelt hatte. Mein Herr weiß zu erreichen, was Er will. Er ist der, der alles weiß und weise ist. <span class="verseNumber">(100)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '101'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>۞ رَبِّ قَدْ ءَاتَيْتَنِى مِنَ ٱلْمُلْكِ وَعَلَّمْتَنِى مِن تَأْوِيلِ ٱلْأَحَادِيثِ ۚ فَاطِرَ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ أَنتَ وَلِىِّۦ فِى ٱلدُّنْيَا وَٱلْـَٔاخِرَةِ ۖ تَوَفَّنِى مُسْلِمًۭا وَأَلْحِقْنِى بِٱلصَّـٰلِحِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>۞ رَبِّ قَدْ ءَاتَيْتَنِى مِنَ ٱلْمُلْكِ وَعَلَّمْتَنِى مِن تَأْوِيلِ ٱلْأَحَادِيثِ ۚ فَاطِرَ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ أَنتَ وَلِىِّۦ فِى ٱلدُّنْيَا وَٱلْـَٔاخِرَةِ ۖ تَوَفَّنِى مُسْلِمًۭا وَأَلْحِقْنِى بِٱلصَّـٰلِحِينَ (101)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Mein Herr, du hast mir etwas von der Königsherrschaft zukommen lassen und mich etwas von der Deutung der Geschichten gelehrt. Du Schöpfer der Himmel und der Erde, du bist mein Freund im Diesseits und Jenseits. Berufe mich als gottergeben ab und stelle mich zu den Rechtschaffenen.» <span class="verseNumber">(101)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '102'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>ذَٰلِكَ مِنْ أَنۢبَآءِ ٱلْغَيْبِ نُوحِيهِ إِلَيْكَ ۖ وَمَا كُنتَ لَدَيْهِمْ إِذْ أَجْمَعُوٓا۟ أَمْرَهُمْ وَهُمْ يَمْكُرُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>ذَٰلِكَ مِنْ أَنۢبَآءِ ٱلْغَيْبِ نُوحِيهِ إِلَيْكَ ۖ وَمَا كُنتَ لَدَيْهِمْ إِذْ أَجْمَعُوٓا۟ أَمْرَهُمْ وَهُمْ يَمْكُرُونَ (102)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Dies gehört zu den Berichten über das Unsichtbare, das Wir dir offenbaren. Du warst nicht bei ihnen, als sie sich verbanden und Ränke schmiedeten. <span class="verseNumber">(102)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '103'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَمَآ أَكْثَرُ ٱلنَّاسِ وَلَوْ حَرَصْتَ بِمُؤْمِنِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَمَآ أَكْثَرُ ٱلنَّاسِ وَلَوْ حَرَصْتَ بِمُؤْمِنِينَ (103)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und die meisten Menschen sind nicht gläubig, du magst dich noch so sehr bemühen. <span class="verseNumber">(103)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '104'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَمَا تَسْـَٔلُهُمْ عَلَيْهِ مِنْ أَجْرٍ ۚ إِنْ هُوَ إِلَّا ذِكْرٌۭ لِّلْعَـٰلَمِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَمَا تَسْـَٔلُهُمْ عَلَيْهِ مِنْ أَجْرٍ ۚ إِنْ هُوَ إِلَّا ذِكْرٌۭ لِّلْعَـٰلَمِينَ (104)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und du verlangst von ihnen keinen Lohn dafür. Es ist nur eine Ermahnung für die Weltenbewohner. <span class="verseNumber">(104)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '105'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَكَأَيِّن مِّنْ ءَايَةٍۢ فِى ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ يَمُرُّونَ عَلَيْهَا وَهُمْ عَنْهَا مُعْرِضُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَكَأَيِّن مِّنْ ءَايَةٍۢ فِى ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ يَمُرُّونَ عَلَيْهَا وَهُمْ عَنْهَا مُعْرِضُونَ (105)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Wie viele Zeichen gibt es in den Himmeln und auf der Erde, an denen sie vorbeigehen, indem sie sich von ihnen abwenden? <span class="verseNumber">(105)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '106'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَمَا يُؤْمِنُ أَكْثَرُهُم بِٱللَّهِ إِلَّا وَهُم مُّشْرِكُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَمَا يُؤْمِنُ أَكْثَرُهُم بِٱللَّهِ إِلَّا وَهُم مُّشْرِكُونَ (106)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und die meisten von ihnen glauben nicht an Gott, ohne (Ihm andere) beizugesellen. <span class="verseNumber">(106)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '107'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>أَفَأَمِنُوٓا۟ أَن تَأْتِيَهُمْ غَـٰشِيَةٌۭ مِّنْ عَذَابِ ٱللَّهِ أَوْ تَأْتِيَهُمُ ٱلسَّاعَةُ بَغْتَةًۭ وَهُمْ لَا يَشْعُرُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>أَفَأَمِنُوٓا۟ أَن تَأْتِيَهُمْ غَـٰشِيَةٌۭ مِّنْ عَذَابِ ٱللَّهِ أَوْ تَأْتِيَهُمُ ٱلسَّاعَةُ بَغْتَةًۭ وَهُمْ لَا يَشْعُرُونَ (107)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Wähnen sie sich denn in Sicherheit davor, daß eine überdeckende (Strafe) von der Pein Gottes über sie kommt, oder daß plötzlich die Stunde über sie kommt, ohne daß sie es merken? <span class="verseNumber">(107)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '108'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>قُلْ هَـٰذِهِۦ سَبِيلِىٓ أَدْعُوٓا۟ إِلَى ٱللَّهِ ۚ عَلَىٰ بَصِيرَةٍ أَنَا۠ وَمَنِ ٱتَّبَعَنِى ۖ وَسُبْحَـٰنَ ٱللَّهِ وَمَآ أَنَا۠ مِنَ ٱلْمُشْرِكِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>قُلْ هَـٰذِهِۦ سَبِيلِىٓ أَدْعُوٓا۟ إِلَى ٱللَّهِ ۚ عَلَىٰ بَصِيرَةٍ أَنَا۠ وَمَنِ ٱتَّبَعَنِى ۖ وَسُبْحَـٰنَ ٱللَّهِ وَمَآ أَنَا۠ مِنَ ٱلْمُشْرِكِينَ (108)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Sprich: Das ist mein Weg. Ich rufe zu Gott aufgrund eines einsichtbringenden Beweises, ich und diejenigen, die mir folgen. Preis sei Gott! Und ich gehöre nicht zu den Polytheisten. <span class="verseNumber">(108)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '109'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>وَمَآ أَرْسَلْنَا مِن قَبْلِكَ إِلَّا رِجَالًۭا نُّوحِىٓ إِلَيْهِم مِّنْ أَهْلِ ٱلْقُرَىٰٓ ۗ أَفَلَمْ يَسِيرُوا۟ فِى ٱلْأَرْضِ فَيَنظُرُوا۟ كَيْفَ كَانَ عَـٰقِبَةُ ٱلَّذِينَ مِن قَبْلِهِمْ ۗ وَلَدَارُ ٱلْـَٔاخِرَةِ خَيْرٌۭ لِّلَّذِينَ ٱتَّقَوْا۟ ۗ أَفَلَا تَعْقِلُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>وَمَآ أَرْسَلْنَا مِن قَبْلِكَ إِلَّا رِجَالًۭا نُّوحِىٓ إِلَيْهِم مِّنْ أَهْلِ ٱلْقُرَىٰٓ ۗ أَفَلَمْ يَسِيرُوا۟ فِى ٱلْأَرْضِ فَيَنظُرُوا۟ كَيْفَ كَانَ عَـٰقِبَةُ ٱلَّذِينَ مِن قَبْلِهِمْ ۗ وَلَدَارُ ٱلْـَٔاخِرَةِ خَيْرٌۭ لِّلَّذِينَ ٱتَّقَوْا۟ ۗ أَفَلَا تَعْقِلُونَ (109)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Und Wir haben vor dir von den Bewohnern der Städte nur Männer gesandt, denen Wir Offenbarungen eingegeben haben. Sind sie denn nicht auf der Erde umhergegangen und haben geschaut, wie das Ende derer war, die vor ihnen lebten? Wahrlich, die Wohnstätte des Jenseits ist besser für die, die gottesfürchtig sind. Habt ihr denn keinen Verstand? <span class="verseNumber">(109)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '110'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>حَتَّىٰٓ إِذَا ٱسْتَيْـَٔسَ ٱلرُّسُلُ وَظَنُّوٓا۟ أَنَّهُمْ قَدْ كُذِبُوا۟ جَآءَهُمْ نَصْرُنَا فَنُجِّىَ مَن نَّشَآءُ ۖ وَلَا يُرَدُّ بَأْسُنَا عَنِ ٱلْقَوْمِ ٱلْمُجْرِمِينَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>حَتَّىٰٓ إِذَا ٱسْتَيْـَٔسَ ٱلرُّسُلُ وَظَنُّوٓا۟ أَنَّهُمْ قَدْ كُذِبُوا۟ جَآءَهُمْ نَصْرُنَا فَنُجِّىَ مَن نَّشَآءُ ۖ وَلَا يُرَدُّ بَأْسُنَا عَنِ ٱلْقَوْمِ ٱلْمُجْرِمِينَ (110)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Als dann die Gesandten die Hoffnung verloren hatten und sie meinten, sie seien belogen worden, kam unsere Unterstützung zu ihnen. Und so wird errettet, wen Wir wollen. Und niemand kann unsere Schlagkraft von den Leuten zurückhalten, die Übeltäter sind. <span class="verseNumber">(110)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+            <script>
+                var slideNumber = '111'.toArabicDigits();
+            </script>
+            <div class="slide light">
+                <div class="lanterns">
+                    <div class="small">
+                        <div class="lantern left"></div>
+                        <div class="lantern right"></div>
+                    </div>
+                    <div class="big">
+                        <div class="lantern right"></div>
+                    </div>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p>لَقَدْ كَانَ فِى قَصَصِهِمْ عِبْرَةٌۭ لِّأُو۟لِى ٱلْأَلْبَـٰبِ ۗ مَا كَانَ حَدِيثًۭا يُفْتَرَىٰ وَلَـٰكِن تَصْدِيقَ ٱلَّذِى بَيْنَ يَدَيْهِ وَتَفْصِيلَ كُلِّ شَىْءٍۢ وَهُدًۭى وَرَحْمَةًۭ لِّقَوْمٍۢ يُؤْمِنُونَ ﴿<script>document.write(slideNumber)</script>﴾</p>
+                        <!-- <p>لَقَدْ كَانَ فِى قَصَصِهِمْ عِبْرَةٌۭ لِّأُو۟لِى ٱلْأَلْبَـٰبِ ۗ مَا كَانَ حَدِيثًۭا يُفْتَرَىٰ وَلَـٰكِن تَصْدِيقَ ٱلَّذِى بَيْنَ يَدَيْهِ وَتَفْصِيلَ كُلِّ شَىْءٍۢ وَهُدًۭى وَرَحْمَةًۭ لِّقَوْمٍۢ يُؤْمِنُونَ (111)</p> -->
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p>Wahrlich, in der Erzählung über sie ist eine Lehre für die Einsichtigen. Es ist keine Geschichte, die erdichtet wird, sondern die Bestätigung dessen, was vor ihm vorhanden war, und eine ins einzelne gehende Darlegung aller Dinge, und eine Rechtleitung und Barmherzigkeit für Leute, die glauben.. <span class="verseNumber">(111)</span></p>
+                    </div>
+                </div>
+                <div class="ribbon"></div>
+            </div>
+        
+    
+    <script>
+        
+        const setFontSize = (elem, maxSize) => {
+            const stringLength = elem.innerText.length;
+            console.log("String length: ", stringLength);
+
+            const newSize = (maxSize - (stringLength / 50) * 0.25);
+            elem.style.fontSize = newSize + "rem";
+            elem.style.lineHeight = (newSize * 2) + "rem";
+            return;
+        }
+
+        const arabicTexts = document.getElementsByClassName("arabic");
+        const germanTexts = document.getElementsByClassName("german");
+        for (const elem of arabicTexts) {
+            setFontSize(elem, 5);
+        }
+        for (const elem of germanTexts) {
+            setFontSize(elem, 4);
+        }
+        
+    </script>
+    </body>
+</html>
