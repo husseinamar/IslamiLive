@@ -3,10 +3,15 @@
         <meta http-equiv="content-Type" content="text/html; utf-8" />
         <meta http-equiv="Pragma" content="no-cache" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../../public/js/textFit.js"></script>
         <style>
             @font-face {
                 font-family: 'me-quran';
                 src: URL('../../public/fonts/me_quran.ttf');
+            }
+
+            * {
+                box-sizing: border-box;
             }
 
             html, body {
@@ -36,13 +41,14 @@
             }
 
             .ribbon {
+                position: absolute;
                 width: 1922px;
-                height: 100px;
+                height: 64px;
+                bottom: 0px;
+                background-position: center;
                 background-image: url("<%= assets.ribbon.src %>");
                 background-repeat: no-repeat;
                 background-size: 1922px 100px;
-                position: absolute;
-                bottom: 25px;
             }
 
             .lantern {
@@ -90,46 +96,69 @@
             }
 
             .text {
+                position: relative;
+                height: 100%;
+                width: 100%;
                 color: #eaeaea;
+                /* background: pink; */
             }
 
             div.slide.light .text {
                 color: #1d1d1d;
+                /* background: pink; */
             }
 
             .text .arabic {
-                font-family: 'me-quran';
-                text-align: center;
-                width: 1100px;
-                height: 500px;
-                font-size: 5rem;
-                line-height: 10rem;
-                position: absolute;
-                right: 75px;
-                top: 50px;
-                word-spacing: 10;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                text-align: center;
+
+                font-family: 'me-quran';
+                word-spacing: 10;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                padding: 10px;
+                /* font-weight: 500; */
+
+                position: absolute;
+                width: 1200px;
+                height: 600px;
+                right: 5px;
+                top: 2px;
+
+                /* background-color: yellow; */
             }
 
             .verseNumber {
                 font-family: 'me-quran';
-                white-space: nowrap;
+                /* white-space: nowrap; */
             }
 
             .text .german {
-                font-family: 'Helvetica';
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 text-align: center;
-                width: 1770px;
-                height: 450px;
-                font-size: 4rem;
-                line-height: 8rem;
-                position: absolute;
-                left: 75px;
-                top: 550px;
+
+                font-family: 'Helvetica';
                 word-spacing: 5;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                padding: 10px;
                 font-weight: 600;
+
+                position: absolute;
+                height: 400px;
+                width: 100%;
+                bottom: 72px;
+                left: 0;
+
+                /* background-color: red; */
+            }
+
+            p {
+                margin: 0;
             }
 
             @media print {
@@ -163,14 +192,15 @@
                         <div class="lantern right"></div>
                     </div>
                 </div>
-                <div class="image"></div>
+                <!-- <div class="image"></div> -->
                 <div class="text">
                     <div class="arabic" dir="rtl">
                         <p><%= slide.arabic %> ﴿<script>document.write(slideNumber)</script>﴾</p>
                         <!-- <p><%= slide.arabic %> (<%= slide.number %>)</p> -->
                     </div>
                     <div class="german" dir="ltr">
-                        <p><%= slide.german %> <span class="verseNumber">(<%= slide.number %>)</span></p>
+                        <!-- <p><%= slide.german %> <span class="verseNumber">(<%= slide.number %>)</span></p> -->
+                        <p><%= slide.german %> (<%= slide.number %>)</p>
                     </div>
                 </div>
                 <div class="ribbon"></div>
@@ -178,24 +208,52 @@
         <% }); %>
     <% } %>
     <script>
-        
+        const arabicTexts = document.getElementsByClassName("arabic");
+        const germanTexts = document.getElementsByClassName("german");
+
+        const resizeText = (childDiv, maxSize) => {
+            const paragraph = childDiv.querySelector("p");
+            const maxWidth = childDiv.clientWidth;
+            const maxHeight = childDiv.clientHeight;
+
+            let fontSize = 15;
+            paragraph.style.fontSize = `${fontSize}px`;
+
+            while (paragraph.clientWidth < maxWidth && paragraph.clientHeight < maxHeight) {
+                fontSize++;
+                paragraph.style.fontSize = `${fontSize}px`;
+            }
+
+            // Decrease the font size by 1 to ensure it fits within the child div
+            fontSize--;
+
+            if ( fontSize > maxSize ) {
+                fontSize = maxSize;
+            }
+
+            paragraph.style.fontSize = `${fontSize}px`;
+            // paragraph.style.lineHeight = `${fontSize * 2}px`;
+        }
+
         const setFontSize = (elem, maxSize) => {
             const stringLength = elem.innerText.length;
             console.log("String length: ", stringLength);
 
-            const newSize = (maxSize - (stringLength / 50) * 0.25);
+            const newSize = (maxSize - (stringLength / 100) * 0.2);
             elem.style.fontSize = newSize + "rem";
             elem.style.lineHeight = (newSize * 2) + "rem";
             return;
         }
 
-        const arabicTexts = document.getElementsByClassName("arabic");
-        const germanTexts = document.getElementsByClassName("german");
         for (const elem of arabicTexts) {
-            setFontSize(elem, 5);
+            // setFontSize(elem, 4.25);
+            resizeText(elem, 60);
+            // textFit(elem);
         }
         for (const elem of germanTexts) {
-            setFontSize(elem, 4);
+            // setFontSize(elem, 4);
+            resizeText(elem, 45);
+            // // textFit(elem);
         }
         
     </script>

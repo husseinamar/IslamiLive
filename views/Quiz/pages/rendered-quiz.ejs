@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html class="w-screen h-screen m-0 p-0">
+
+<head>
+    <script>
+        const loadQuiz = async () => {
+            const local = localStorage.getItem('quiz-<%- quizId %>-Data');
+
+            if ( local ) {
+                return JSON.parse(local);
+            }
+
+            // TODO: think about or try to find a local file before trying to retrieve from online
+
+            let fetchResponse;
+            try {
+                fetchResponse = await fetch(`${window.location.protocol}//${window.location.host}/api/quiz/<%- quizId %>`);
+
+                const jsonResponse = await fetchResponse?.json();
+                console.log(jsonResponse)
+
+                const fetchedQuiz = jsonResponse?.data;
+
+                if (!fetchedQuiz || fetchedQuiz.length === 0) {
+                    return;
+                }
+
+                localStorage.setItem('quiz-<%- quizId %>-data', JSON.stringify(fetchedQuiz));
+
+                return fetchedQuiz;
+
+            } catch (error) {
+                console.log(error);
+                return {};
+            }
+        }
+    </script>
+    <script>
+        // const quizJSON = `<%- quizJSON %>`;
+        // const quiz = JSON.parse(quizJSON.replaceAll('\n', '\\n'));
+
+        let quiz;
+        const init = async () => {
+            quiz = await loadQuiz();
+            document.title = `${quiz.name} | IslamiLive`;
+        }
+    </script>
+
+    <script>
+        class ObservableMapChangeEvent extends Event {
+            constructor(observable, key, oldValue, newValue) {
+                super('change');
+                this.observable = observable;
+                this.key = key;
+                this.oldValue = oldValue;
+                this.newValue = newValue;
+            }
+        }
+
+        class ObservableMap extends Map {
+            constructor(iterable) {
+                super(iterable);
+                this._eventTarget = new EventTarget();
+            }
+
+            on(name, listener, options) {
+                this._eventTarget.addEventListener(name, listener, options);
+            }
+
+            off(name, listener, options) {
+                this._eventTarget.addEventListener(name, listener, options);
+            }
+
+            delete(key) {
+                this._eventTarget.dispatchEvent(new ObservableMapChangeEvent(this, key, this.get(key), undefined));
+                super.delete(key);
+            }
+            set(key, value) {
+                this._eventTarget.dispatchEvent(new ObservableMapChangeEvent(this, key, this.get(key), value));
+                super.set(key, value);
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="w-full h-full m-0 p-0 select-none">
+    <div style="display: hidden" class="grid grid-cols-1 gap-4 sm:grid-cols-1 bg-red-100 font-extrabold"></div>
+    <div style="display: hidden" class="grid grid-cols-1 gap-4 sm:grid-cols-2 bg-green-100"></div>
+    <div style="display: hidden" class="grid grid-cols-1 gap-4 sm:grid-cols-3"></div>
+    <div style="display: hidden" class="grid grid-cols-1 gap-4 sm:grid-cols-4"></div>
+    <div style="display: hidden" class="grid grid-cols-1 gap-4 sm:grid-cols-5"></div>
+    <div style="display: hidden" class="grid grid-cols-1 gap-4 sm:grid-cols-6"></div>
+    <div id="content"
+        class="m-0 p-0 bg-[url('/img/ramadan_kareem_arabic_kufi_style.png')] bg-left-top bg-no-repeat bg-cover w-full h-full">
+
+        <!-- START Quiz Start Slide -->
+        <div id="first-slide" data-id="slide-0"
+            class="fixed inset-x-0 mx-auto ease-out duration-300 opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95 py-24 px-6 sm:px-6 sm:py-72 lg:px-6">
+            <div class="mx-auto max-w-2xl text-center">
+                <h2 id="quiz-name" class="text-4xl font-bold tracking-tight text-white sm:text-5xl"></h2>
+                <div class="mt-10 flex items-center justify-center gap-x-6">
+                    <button data-href="slide-2" onclick="startQuiz()"
+                        class="rounded-md bg-white px-5 py-3.5 text-lg font-semibold text-indigo-600 hover:text-indigo-600 shadow-sm hover:bg-indigo-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                        Jetzt Starten
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- END Quiz Start Slide -->
+
+        <!-- START Category Slide -->
+        <div
+            id="categories-slide"
+            class="hidden fixed inset-x-0 mx-auto ease-out duration-300 opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95 py-24 px-6 sm:px-6 sm:py-24 lg:px-6"
+        >
+            <div class="mx-auto max-w-2xl text-center">
+                <h2 id="categories-title" class="mb-32 text-4xl font-bold text-white sm:text-5xl">Kategorien</h2>
+                <div 
+                    id="categories-container"
+                    class="grid grid-cols-1 gap-8 sm:grid-cols-2"
+                >
+                </div>
+            </div>
+        </div>
+        <!-- END Category Slide -->
+    </div>
+    <script>
+        const contentDiv = document.getElementById('content');
+        const quizNameHeading = document.getElementById('quiz-name');
+        const quizFirstSlide = document.getElementById('first-slide');
+        const categoriesSlide = document.getElementById('categories-slide');
+
+        const questionElements = new ObservableMap();
+        const slides = new ObservableMap();
+
+        const setup = async () => {
+            await init();
+            quizNameHeading.innerHTML = quiz.name;
+            console.log('quiz', quiz);
+
+            slides.set('quizFirstSlide', quizFirstSlide);
+            slides.set('categoriesSlide', categoriesSlide);
+
+            showSlide(quizFirstSlide);
+        };
+
+        const startQuiz = () => {
+            hideSlide(quizFirstSlide, () => {
+
+            });
+
+            setTimeout(() => {
+                categoriesSlide.classList.remove('hidden');
+            }, 200);
+
+            setTimeout(startQuizHandler, 400);
+        };
+
+        const startQuizHandler = () => {
+            showSlide(categoriesSlide);
+
+            const categoriesContainer = document.getElementById('categories-container');
+
+            for (const category of quiz.categories) {
+                
+                // create category button in categories slide
+                const categoryElement = document.createElement('div');
+                categoryElement.setAttribute('class', 'relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400 cursor-pointer text-gray-900 hover:bg-indigo-50 hover:text-indigo-600 text-center aria-[disabled=true]:bg-gray-500 aria-[disabled=true]:hover:bg-gray-500 aria-[disabled=true]:text-white aria-[disabled=true]:hover:text-white aria-[disabled=true]:hover:cursor-not-allowed');
+                categoryElement.setAttribute('onclick', `goToCategoryPage(${category.id}, 'categoriesSlide', "${category.name}")`)
+                categoryElement.setAttribute('data-id', `${category.id}`)
+
+                categoryElement.innerHTML = `
+                    <div class="min-w-0 flex-1">
+                        <div class="focus:outline-none">
+                            <p class="text-lg font-medium">${category.name}</p>
+                        </div>
+                    </div>
+                `;
+                
+                categoriesContainer.appendChild(categoryElement);
+                
+                const categorySlide = createCategorySlide(category);
+
+                contentDiv.appendChild(categorySlide);
+            }
+        }
+
+        const createCategorySlide = (category) => {
+            // create page for the category to select a question
+            const categorySlide = document.createElement('div');
+            categorySlide.setAttribute('id', `category-${category.id}`)
+            categorySlide.setAttribute('class', 'hidden fixed inset-x-0 mx-auto ease-out duration-300 opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95 py-20 px-6 sm:px-6 sm:py-20 lg:px-6');
+            categorySlide.setAttribute('aria-id', `${category.id}`);
+            slides.set(`category-${category.id}`, categorySlide);
+            console.log(category);
+
+            // create a grid for the category slide
+            const gridContainer = document.createElement('div');
+            gridContainer.setAttribute('class', 'mx-auto max-w-4xl text-center');
+
+            if ( category.questions.length > 20 ) {
+                gridContainer.setAttribute('class', 'mx-auto max-w-6xl text-center');
+            }
+
+            if ( category.questions.length > 25 ) {
+                gridContainer.setAttribute('class', 'mx-auto max-w-8xl text-center');
+            }
+
+            const backToCategoriesButton = createBackToCategoriesButton(category.id);
+            categorySlide.appendChild(backToCategoriesButton);
+
+            const categorySlideTitle = document.createElement('h2');
+            categorySlideTitle.setAttribute('class', 'mb-20 text-4xl font-bold text-white sm:text-5xl');
+            categorySlideTitle.innerHTML = category.name;
+            
+            const buttonGrid = document.createElement('div');
+            let gridSize = Math.ceil(category.questions.length / 4);
+            gridSize = gridSize > 6 ? 6 : gridSize;
+            console.log('[createCategorySlide] gridSize', gridSize);
+            buttonGrid.setAttribute('class', 'grid grid-cols-1' + ' gap-4 sm:grid-cols-' + gridSize);
+            // buttonGrid.setAttribute('class', 'grid grid-cols-' + gridSize + ' gap-4 sm:grid-cols-' + gridSize);
+            
+            gridContainer.appendChild(categorySlideTitle);
+            gridContainer.appendChild(buttonGrid);
+            categorySlide.appendChild(gridContainer);
+
+            let questionCounter = 0;
+            
+            // create the question buttons on each category page
+            for ( const question of category.questions ) {
+                ++questionCounter;
+
+                const button = document.createElement('div');
+                button.setAttribute('class', 'bg-white p-10 text-lg rounded-lg cursor-pointer hover:bg-indigo-50 hover:text-indigo-500 aria-[disabled=true]:bg-gray-500 aria-[disabled=true]:hover:bg-gray-500 aria-[disabled=true]:text-white aria-[disabled=true]:hover:text-white aria-[disabled=true]:hover:cursor-not-allowed');
+                
+                // TODO: Store clicked questions in the localStorage
+                console.log('[createCategoriesOverview]', question);
+                button.setAttribute('onclick', `event.stopPropagation(); event.target.setAttribute("aria-disabled", "true"); goToQuestionSlide(${category.id}, ${question.id}); /* event.target.removeAttribute("onclick"); */ const siblings = getSiblings(this); const selectedSiblingsCount = siblings.filter(sibling => sibling.getAttribute("aria-disabled") === 'true')?.length ?? 0; console.log('count', selectedSiblingsCount, siblings.length); if ( selectedSiblingsCount === siblings.length ) { const categoryButton = [...document.getElementById("categories-container").children].find(child => child.getAttribute("data-id") === "${category.id}"); categoryButton?.setAttribute("aria-disabled", "true") }`);
+                
+                if ( category.questions.length > 20 ) {
+                    button.setAttribute('class', 'bg-white p-4 text-lg rounded-lg cursor-pointer hover:bg-indigo-50 hover:text-indigo-500 aria-[disabled=true]:bg-gray-500 aria-[disabled=true]:hover:bg-gray-500 aria-[disabled=true]:text-white aria-[disabled=true]:hover:text-white aria-[disabled=true]:hover:cursor-not-allowed');
+                }
+                
+                button.innerHTML = questionCounter;
+                buttonGrid.appendChild(button);
+
+                // TODO: create slide for each question
+                const questionSlide = createQuestionSlide(question, category.id, questionCounter);
+                contentDiv.appendChild(questionSlide);
+            }
+        
+            return categorySlide;
+        }
+
+        const createQuestionSlide = (question, categoryId, index = 0) => {
+            // create page for the question to select a question
+            const questionSlide = document.createElement('div');
+            questionSlide.setAttribute('id', `question-${question.id}`)
+            questionSlide.setAttribute('class', 'hidden fixed inset-x-0 mx-auto ease-out duration-300 opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95 py-20 px-6 sm:px-6 sm:py-20 lg:px-6');
+            questionSlide.setAttribute('aria-id', `${question.id}`);
+            
+            console.log('[createQuestionSlide] Question:', question);
+            console.log('[createQuestionSlide] Index:', index);
+            console.log('[createQuestionSlide] categoryId:', categoryId);
+            console.log('[createQuestionSlide] QuestionSlide:', questionSlide);
+            
+            slides.set(`question-${question.id}`, questionSlide);
+            console.log('[createQuestionSlide] slides:', slides);
+
+            // create a grid for the category slide
+            const gridContainer = document.createElement('div');
+            gridContainer.setAttribute('class', 'mx-auto max-w-4xl text-center');
+
+            const backToCategoryButton = createBackToCategoryButton(question.id, categoryId);
+            questionSlide.appendChild(backToCategoryButton);
+
+            const questionSlideTitle = document.createElement('h2');
+            questionSlideTitle.setAttribute('class', 'mb-20 text-4xl font-bold text-white sm:text-5xl whitespace-pre-line');
+            questionSlideTitle.innerHTML = `${index}. ${question.question.trim().replaceAll('\\n', '\n')}`;
+            
+            const buttonGrid = document.createElement('div');
+            buttonGrid.setAttribute('class', 'grid grid-cols-1 gap-4 sm:grid-cols-1');
+            
+            gridContainer.appendChild(questionSlideTitle);
+            gridContainer.appendChild(buttonGrid);
+            questionSlide.appendChild(gridContainer);
+
+            let answerCounter = 0;
+
+            // create the question buttons on each question page
+            for ( const possibility of question.answerPossibilities ) {
+                const button = document.createElement('div');
+       
+                const groupPrefix = 'answer';
+                const selectedAttribute = `aria-[selected=true]`;
+                const selectedGroupAttribute = `group-aria-[selected=true]/${groupPrefix}`;
+
+                const selectedGroupBg = `bg-white`;
+                const selectedGroupText = `text-black`;
+                
+                const unSelectedGroupBg = `bg-indigo-50`;
+                const unSelectedGroupText = `text-indigo-500`;
+
+                const correctAttribute = `${selectedGroupAttribute}:group-aria-[is-correct=true]/${groupPrefix}`;
+                const falseAttribute = `${selectedGroupAttribute}:group-aria-[is-correct=false]/${groupPrefix}`;
+
+                const selectedGroupClass = `${selectedAttribute}:${selectedGroupBg} ${selectedAttribute}:${selectedGroupText} ${selectedAttribute}:hover:${selectedGroupBg} ${selectedAttribute}:hover:${selectedGroupText} ${selectedAttribute}:hover:cursor-not-allowed`;
+                const selectedClassLetter = `${selectedGroupAttribute}:hover:bg-indigo-600 ${selectedGroupAttribute}:hover:text-white ${selectedGroupAttribute}:hover:cursor-not-allowed`;
+                const selectedClassAnswer = `${selectedGroupAttribute}:hover:${selectedGroupBg} ${selectedGroupAttribute}:hover:${selectedGroupText} ${selectedGroupAttribute}:hover:cursor-not-allowed`;
+                const correctClass = `${correctAttribute}:text-green-800`;
+                const inCorrectClass = `${falseAttribute}:text-red-800`;
+
+                button.setAttribute('class', `group/${groupPrefix} flex w-full ${selectedGroupBg} text-lg rounded-lg cursor-pointer hover:${unSelectedGroupBg} hover:${unSelectedGroupText} ${selectedGroupClass}`);
+                button.setAttribute('aria-is-correct', `${possibility.isCorrect}`);
+                
+                // TODO: Store clicked questions in the localStorage
+                button.addEventListener('click', (event) => {
+                    console.log('answer clicked');
+                    event.stopPropagation();
+
+                    if ( button.getAttribute("aria-selected") === "true" ) {
+                        console.log('Clicked an already answered question');
+                        return;
+                    }
+
+                    button.setAttribute("aria-selected", "true");
+
+                    button.classList.remove('hover:bg-indigo-50', 'hover:text-indigo-500', 'aria-[selected=true]:text-black');
+
+                    button.classList.add('font-extrabold');
+                    
+                    if ( button.getAttribute("aria-is-correct") === "true" ) {
+                        button.classList.add('text-green-500', 'bg-green-100');
+                    }
+                    
+                    if ( button.getAttribute("aria-is-correct") === "false" ) {
+                        button.classList.add('text-red-500', 'bg-red-100');
+                    }
+                    
+                    const siblings = getSiblings(button);
+                    console.log(siblings);
+
+                    for (const sibling of siblings) {
+                        sibling.setAttribute("aria-selected", "true");
+                        sibling.classList.remove('hover:bg-indigo-50', 'hover:text-indigo-500', 'aria-[selected=true]:text-black');
+                        
+                        if ( sibling.getAttribute("aria-is-correct") === "true" ) {
+                            sibling.classList.add('text-green-500', 'bg-green-100');
+                        }
+                        
+                        if ( sibling.getAttribute("aria-is-correct") === "false" ) {
+                            sibling.classList.add('text-red-500', 'bg-red-100');
+                        }
+                    }
+
+                });
+
+                buttonGrid.appendChild(button);
+                
+                const letter = document.createElement('div');
+                letter.setAttribute('class', `uppercase p-4 w-16 bg-indigo-100 text-black text-lg rounded-lg cursor-pointer ${selectedClassLetter}`);
+                letter.setAttribute('aria-description', `letter`);
+                letter.innerHTML = String.fromCharCode(97 + answerCounter++);
+                button.appendChild(letter);
+                
+                const answerValue = document.createElement('div');
+                answerValue.setAttribute('class', `p-4 text-lg cursor-pointer whitespace-pre-line ${selectedClassAnswer} ${possibility.isCorrect ? correctClass : inCorrectClass}`);
+                answerValue.setAttribute('aria-description', `answer`);
+                answerValue.innerHTML = possibility.value.trim().replaceAll('\\n', '\n');
+                button.appendChild(answerValue);
+            }
+        
+            return questionSlide;
+        }
+
+        const getSiblings = (element) => {
+            let siblings = []; 
+            // if no parent, return no sibling
+            if(!element.parentNode) {
+                return siblings;
+            }
+
+            // first child of the parent node
+            let sibling = element.parentNode.firstChild;
+            
+            // collecting siblings
+            while (sibling) {
+                if (sibling.nodeType === 1 && sibling !== element) {
+                    siblings.push(sibling);
+                }
+                sibling = sibling.nextSibling;
+            }
+
+            return siblings;
+        }
+
+        const createBackToCategoriesButton = (categoryId) => {
+            const button = document.createElement('div');
+            button.setAttribute('class', 'absolute z-100 t-2 l-2 w-10 h-10 flex items-center justify-center bg-white rounded-lg cursor-pointer hover:bg-indigo-50 hover:text-indigo-500');
+            button.setAttribute('onclick', `goToCategoriesOverview(${categoryId})`);
+
+            button.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
+                    <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
+                </svg>
+            `.trim();
+
+            return button;
+        }
+
+        const createBackToCategoryButton = (questionId, categoryId) => {
+            const button = document.createElement('div');
+            button.setAttribute('class', 'absolute z-100 t-2 l-2 w-10 h-10 flex items-center justify-center bg-white rounded-lg cursor-pointer hover:bg-indigo-50 hover:text-indigo-500');
+            button.setAttribute('onclick', `goToCategoryPage(${categoryId}, ${questionId})`);
+
+            button.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
+                    <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
+                </svg>
+            `.trim();
+
+            return button;
+        }
+
+        const goToCategoriesOverview = (categoryId) => {
+            const currentSlide = slides.get(`category-${categoryId}`);
+            
+            hideSlide(currentSlide, () => {
+                setTimeout(() => categoriesSlide.classList.remove('hidden'), 200);
+                setTimeout(() => showSlide(categoriesSlide), 400);
+            });
+        }
+
+        const goToCategoryPage = (categoryId, questionId, categoryName = '') => {
+            
+            let currentQuestionSlide;
+
+            if ( ['categoriesSlide', 'quizFirstSlide'].includes(questionId) ) {
+                currentQuestionSlide = slides.get(`${questionId}`);
+            }
+
+            if ( !['categoriesSlide', 'quizFirstSlide'].includes(questionId) ) {
+                currentQuestionSlide = slides.get(`question-${questionId}`);
+            }
+
+            hideSlide(currentQuestionSlide, () => {
+                console.log('showing category', categoryId, categoryName);
+                const slide = slides.get(`category-${categoryId}`);
+                
+                if ( slide ) {
+                    setTimeout(() => slide.classList.remove('hidden'), 200);
+                    setTimeout(() => showSlide(slide), 400);
+                    return;
+                }
+
+                console.log('slide not created yet');
+            });
+        }
+
+        const goToQuestionSlide = (categoryId, questionId, questionName = '') => {
+            const currentSlide = slides.get(`category-${categoryId}`);
+
+            hideSlide(currentSlide, () => {
+                console.log('showing question', questionId, questionName);
+                const slide = slides.get(`question-${questionId}`);
+
+                if ( slide ) {
+                    setTimeout(() => slide.classList.remove('hidden'), 200);
+                    setTimeout(() => showSlide(slide), 400);
+                    return;
+                }
+
+                console.log('slide not created yet');
+            });
+        }
+
+        const hideSlide = (slide, callback = undefined) => {
+            if ( !slide ) {
+                return;
+            }
+
+            slide.classList.remove('ease-out', 'duration-300', 'opacity-100', 'translate-y-0', 'sm:scale-100');
+            slide.classList.add('ease-in', 'duration-200', 'opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
+            
+            setTimeout(() => {
+                slide.classList.add('hidden');
+            }, 200);
+
+            if ( callback !== undefined) {
+                callback();
+            }
+        }
+
+        const showSlide = (slide, callback = undefined) => {
+            slide.classList.remove('opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
+            slide.classList.add('opacity-100', 'translate-y-0', 'sm:scale-100');
+
+            if ( callback !== undefined ) {
+                callback();
+            }
+        }
+
+        setup();
+    </script>
+</body>
+
+</html>

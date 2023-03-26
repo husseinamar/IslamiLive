@@ -1,0 +1,232 @@
+<html>
+    <head>
+        <meta http-equiv="content-Type" content="text/html; utf-8" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../../public/js/textFit.js"></script>
+        <style>
+            @font-face {
+                font-family: 'boutros';
+                /* src: URL('../../public/fonts/BoutrosAsmaRegular.ttf'); */
+                src: URL('../../public/fonts/NotoSansArabic-VariableFont_wdth,wght.ttf');
+            }
+
+            @font-face {
+                font-family: 'NotoSansArabic-Bold';
+                /* src: URL('../../public/fonts/BoutrosAsmaRegular.ttf'); */
+                src: URL('../../public/fonts/static/NotoSansArabic/NotoSansArabic-ExtraBold.ttf');
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            html, body {
+                padding: 0!important;
+                margin: 0!important;
+                width: 1920px!important;
+                height: 1080px!important;
+            }
+
+            div.slide {
+                position: relative;
+                left: 0;
+                top: 0;
+                width: 1922px;
+                height: 1080px;
+                padding: 0!important;
+                margin: 0!important;
+                background-image: url("<%= assets.background.src %>");
+                background-position: -1 1;
+                background-repeat: no-repeat;
+                background-size: 1924px 1086px;
+                overflow: hidden;
+            }
+
+            .ribbon {
+                width: 1922px;
+                height: 100px;
+                /* background-image: url("<%= assets.ribbon.src %>"); */
+                background-repeat: no-repeat;
+                background-size: 1922px 100px;
+                position: absolute;
+                bottom: 25px;
+            }
+
+            .lantern {
+                --width: <%= assets.lantern.width %>px;
+                --height: <%= assets.lantern.height %>px;
+                /* background-image: url("<%= assets.lantern.src %>"); */
+                background-repeat: no-repeat;
+                background-size: calc(var(--width) * 0.8) calc(var(--height) * 0.8);
+                width: calc(var(--width) * 0.8);
+                height: calc(var(--height) * 0.8);
+                position: absolute;
+            }
+
+            .small .lantern {
+                background-size: calc(var(--width) * 0.6) calc(var(--height) * 0.6);
+                width: calc(var(--width) * 0.6);
+                height: calc(var(--height) * 0.6);
+                top: -45px;
+            }
+
+            .small .lantern.left {
+                left: 45px;
+            }
+
+            .small .lantern.right {
+                left: 515px;
+            }
+
+            .big .lantern.right {
+                left: 600px;
+                top: 0;
+            }
+
+            .image {
+                --width: <%= assets.image.width %>px;
+                --height: <%= assets.image.height %>px;
+                /* background-image: url('<%= assets.image.src %>'); */
+                background-size: calc(50px + var(--width)) calc(var(--height) * 0.9);
+                background-repeat: no-repeat;
+                width: calc(50px + var(--width));
+                height: var(--height);
+                position: absolute;
+                top: 30px;
+                left: 60px;
+            }
+
+            .title {
+                color: #eaeaea;
+                height: 147px;
+                width: 482px;
+                position: absolute;
+                left: 989px;
+                top: 46px;
+            }
+
+            .title .arabicTitle {
+                position: relative;
+                width: 87.5%;
+                height: 100%;
+                text-align: center;
+                margin: 0 auto;
+                font-weight: 800;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: 'NotoSansArabic-Bold';
+                font-size: 2.5em;
+                line-height: 1.5em;
+            }
+
+            .text {
+                color: #eaeaea;
+                position: absolute;
+                left: 598px;
+                top: 234px;
+                width: 1261px;
+                height: 780px;
+                padding: 0 15px 0 15px;
+            }
+
+            .text .arabic {
+                font-family: 'boutros';
+            }
+
+            div.slide.light .text {
+                color: #1d1d1d;
+            }
+
+            .text .arabic,
+            .text .german {
+                text-align: center;
+                width: 100%;
+                position: relative;
+            }
+
+            .text .arabic {
+                font-weight: 550;
+                height: 465px;
+                word-spacing: 10;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .text .german {
+                font-family: 'Helvetica';
+                height: 315px;
+                word-spacing: 5;
+                font-weight: 450;
+            }
+
+            sup {
+                font-size: 20px;
+            }
+
+            @media print {
+                .slide {
+                    page-break-before: always;
+                }
+            }
+        </style>
+        <script>
+            String.prototype.toArabicDigits= function(){
+                var id= ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+                return this.replace(/[0-9]/g, function(w){
+                    return id[+w]
+                });
+            }
+        </script>
+    </head>
+    <body>
+    <% if( content !== undefined ) { %>
+        <% content.slides.forEach((slide) => { %>
+            <script>
+                var slideNumber = '<%= slide.number %>'.toArabicDigits();
+            </script>
+            <div class="slide">
+                <div class="title">
+                    <div class="arabicTitle">
+                        <p><%- content.title %></p>
+                    </div>
+                </div>
+                <div class="text">
+                    <div class="arabic" dir="rtl">
+                        <p><%- slide.arabic %></p>
+                    </div>
+                    <div class="german" dir="ltr">
+                        <p><%- slide.german %></p>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    <% } %>
+    <script>
+        
+        const setFontSize = (elem, maxSize) => {
+            const stringLength = elem.innerText.length;
+            console.log("String length: ", stringLength);
+
+            const newSize = (maxSize - (stringLength / 100) * 0.2);
+            elem.style.fontSize = newSize + "rem";
+            elem.style.lineHeight = (newSize * 2) + "rem";
+            return;
+        }
+
+        const arabicTexts = document.getElementsByClassName("arabic");
+        const germanTexts = document.getElementsByClassName("german");
+        const titleTexts = document.getElementsByClassName("arabicTitle");
+        for (const elem of arabicTexts) {
+            // textFit(elem);
+            setFontSize(elem, 3.5);
+        }
+        for (const elem of germanTexts) {
+            // textFit(elem);
+            setFontSize(elem, 3);
+        }
+    </script>
+    </body>
+</html>

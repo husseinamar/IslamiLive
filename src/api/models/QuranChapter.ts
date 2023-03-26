@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { QuranVerse } from './QuranVerse';
 
-@Entity()
+@Entity("quran_chapters")
 export class QuranChapter {
 
 	@PrimaryGeneratedColumn({ name: 'id' })

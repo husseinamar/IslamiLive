@@ -1,7 +1,6 @@
 import 'reflect-metadata';
-import { QuranChapterService } from '../services/QuranChapterService';
-import { QuranVerseService } from '../services/QuranVerseService';
-import { QuranChapter } from '../../api/models/QuranChapter';
+import { QuranService } from '../services/QuranService';
+import { QuranChapter } from '../models/QuranChapter';
 import { Service } from 'typedi';
 import { Body, Get, JsonController, Param, Post, QueryParam, Req, Res } from 'routing-controllers';
 import { instanceToPlain } from 'class-transformer';
@@ -13,18 +12,16 @@ import { QuranVerse } from '../models/QuranVerse';
 
 import { readFile, writeFile } from 'fs/promises'
 import * as path from 'path';
-import * as puppeteer from 'puppeteer';
-import * as ejs from 'ejs';
+import puppeteer from 'puppeteer';
+import ejs from 'ejs';
 
 @Service()
 @JsonController('/quran')
 export class QuranController {
-    quranChapterService: QuranChapterService;
-    quranVerseService: QuranVerseService;
+    quranService: QuranService;
 
     constructor() {
-        this.quranChapterService = new QuranChapterService();
-        this.quranVerseService = new QuranVerseService();
+        this.quranService = new QuranService();
      }
 
     @Get('/ping')
@@ -39,7 +36,7 @@ export class QuranController {
         return response.status(200).send(successResponse);
     }
 
-    @Get('/chapter/list')
+    @Get('/chapters')
     public async findAll(
         @QueryParam('limit') limit: number,
         @QueryParam('offset') offset: number,
@@ -52,7 +49,7 @@ export class QuranController {
         const WhereConditions = [];
         const fields = [];
 
-        const quranChapters = await this.quranChapterService.list(
+        const quranChapters = await this.quranService.listChapters(
             limit,
             offset,
             fields,
@@ -71,14 +68,14 @@ export class QuranController {
         return response.status(200).send(successResponse);
     }
 
-    @Get('/chapter/:id')
-    public async find(
+    @Get('/chapters/:id')
+    public async findChapter(
         @Param('id') id: string,
         @Body() quranChapterParam: FindQuranChapterRequest,
         @Res() response: any
     ): Promise<any> {
         console.log(`Looking for quranChapter { id: ${id} }`)
-        const quranChapter = await this.quranChapterService.findOne({
+        const quranChapter = await this.quranService.findOneChapter({
             where: {
                 id: id,
             },
@@ -102,14 +99,14 @@ export class QuranController {
         return response.status(200).send(successResponse);
     }
 
-    @Get('/chapter/pdf/:id')
-    public async createChapterPDF(
+    @Get('/chapters/:id/pdf')
+    public async generateFullChapterPDF(
         @Param('id') id: string,
         @Body() quranChapterParam: FindQuranChapterRequest,
         @Res() response: any
     ): Promise<any> {
         console.log(`Looking for quranChapter { id: ${id} }`)
-        const quranChapter = await this.quranChapterService.findOne({
+        const quranChapter = await this.quranService.findOneChapter({
             where: {
                 id: id,
             },
@@ -124,35 +121,45 @@ export class QuranController {
             };
             return response.status(200).send(errorResponse);
         }
-        
+
+        let hasBasmala = false;
+
+        if ( quranChapter.verses.at(0).arabic === "بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ" ) {
+            hasBasmala = true;
+        }
+
         const OUTFILE = path.join(__dirname, '../../..', 'public/generated/Quran/pdf/') + quranChapter.name;
         await this.createPDFPuppeteer(OUTFILE, {
+            hasBasmala,
             slides: quranChapter.verses,
         });
         
         const successResponse: any = {
             status: 1,
             message: 'Found Quran Chapter.',
-            data: instanceToPlain(quranChapter),
+            data: instanceToPlain({ url: OUTFILE + '.pdf', quranChapter }),
         };
         return response.status(200).send(successResponse);
     }
 
-    @Post('/create-chapter')
+    // TODO: take verses in the request too and add them
+    @Post('/chapters')
     public async createQuranChapter(
         @Body({ validate: true }) createParam: CreateQuranChapterRequest,
         @Res() response: any
     ): Promise<any> {
         console.log(createParam);
 
-        let quranChapter = await this.quranChapterService.findOne({
+        // search by name
+        let quranChapter = await this.quranService.findOneChapter({
             where: {
                 name: createParam.name,
             }
         });
 
+        // search by Quran chapter number (to make sure the name didn't simply have a typo)
         if ( !quranChapter ) {
-            quranChapter = await this.quranChapterService.findOne({
+            quranChapter = await this.quranService.findOneChapter({
                 where: {
                     number: createParam.number,
                 }
@@ -171,7 +178,7 @@ export class QuranController {
         const newQuranChapter = new QuranChapter();
         newQuranChapter.name = createParam.name;
 
-        const quranChapterSaveResponse = this.quranChapterService.create(newQuranChapter);
+        const quranChapterSaveResponse = this.quranService.createChapter(newQuranChapter);
 
         if ( !quranChapterSaveResponse ) {
             const errorResponse: any = {
@@ -190,15 +197,24 @@ export class QuranController {
         return response.status(200).send(successResponse);
     }
 
-    @Get('/create-all')
-    public async createAll(
+    /**
+     * Imports all chapters and verses from the xml files
+     * @param createParam 
+     * @param response 
+     * @returns 
+     */
+    @Post('/import-all')
+    public async importAll(
         @Body() createParam: any,
         @Res() response: any
     ) {
         let quranChapters: QuranChapter;
+        let quranVerse: QuranVerse;
 
+        // look if there are chapters already
+        // if there are entries already we have to delete them
         try {
-            quranChapters = await this.quranChapterService.findOne({
+            quranChapters = await this.quranService.findOneChapter({
             where: {
                     id: 1,
                 },
@@ -209,6 +225,28 @@ export class QuranController {
 
         // to prevent any doubles and/or inconsistensies don't accept create all request if table isn't empty
         if ( quranChapters ) {
+            const errorResponse: any = {
+                status: 0,
+                message: 'Please delete previous entries first',
+                data: {},
+            };
+            return response.status(500).send(errorResponse);
+        }
+
+        // look if there are chapters already
+        // if there are entries already we have to delete them
+        try {
+            quranVerse = await this.quranService.findOneVerse({
+            where: {
+                    id: 1,
+                },
+            });
+        } catch ( error ) {
+
+        }
+
+        // to prevent any doubles and/or inconsistensies don't accept create all request if table isn't empty
+        if ( quranVerse ) {
             const errorResponse: any = {
                 status: 0,
                 message: 'Please delete previous entries first',
@@ -271,7 +309,7 @@ export class QuranController {
                 
                 verses.push(newVerse);
 
-                const saveResponse = await this.quranVerseService.create(newVerse);
+                const saveResponse = await this.quranService.createVerse(newVerse);
 
                 if ( !saveResponse ) {
                     const errorResponse: any = {
@@ -289,7 +327,7 @@ export class QuranController {
             newChapter.verses = verses;
             
             chapters.push(newChapter);
-            const saveResponse = await this.quranChapterService.create(newChapter);
+            const saveResponse = await this.quranService.createChapter(newChapter);
 
             if ( !saveResponse ) {
                 const errorResponse: any = {
@@ -329,7 +367,7 @@ export class QuranController {
 
         const chapters: QuranChapter[] = [];
         for ( let i = startChapterId; i >= startChapterId && i <= endChapterId; i++ ) {
-            const chapter = await this.quranChapterService.findOne({
+            const chapter = await this.quranService.findOneChapter({
                 where: {
                     id: i,
                 },
@@ -394,6 +432,8 @@ export class QuranController {
     }
 
     private async createPDFPuppeteer(output: string, content: any): Promise<any> {
+        console.log('[createPDFPuppeteer]', 'started converting to PDF');
+
         const assets = {
             background: {
                 src: ('../files/Templates/1/dark/Hintergrund.png'),
@@ -454,7 +494,7 @@ export class QuranController {
                 printBackground: true,
             });
     
-            await console.log("done");
+            console.log('[createPDFPuppeteer]', "done");
             await browser.close();
         });
     

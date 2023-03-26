@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
 import { QuranChapter } from "./QuranChapter";
 
-@Entity()
+@Entity("quran_verses")
 export class QuranVerse {
 
 	@PrimaryGeneratedColumn({ name: 'id' })
@@ -10,10 +10,10 @@ export class QuranVerse {
 	@Column({ name: 'verse_number', nullable: false })
 	public number: number;
 
-	@Column({ name: 'arabic', nullable: false, type: 'text' })
+	@Column({ name: 'arabic', nullable: false, type: 'longtext' })
 	public arabic: string;
 
-	@Column({ name: 'german', type: 'text' })
+	@Column({ name: 'german', type: 'longtext' })
 	public german: string;
 
 	@ManyToOne(() => QuranChapter, chapter => chapter.verses )
