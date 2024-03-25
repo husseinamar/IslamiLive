@@ -51,6 +51,25 @@
                 background-size: 1922px 100px;
             }
 
+            .title {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+
+                font-family: 'me-quran';
+                word-spacing: 10;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                padding: 10px;
+
+                position: absolute;
+                width: 345px;
+                left: 150px;
+                height: 75px;
+                top: 25px
+            }
+
             .lantern {
                 --width: <%= assets.lantern.width %>px;
                 --height: <%= assets.lantern.height %>px;
@@ -182,7 +201,7 @@
             <script>
                 var slideNumber = '<%= slide.number %>'.toArabicDigits();
             </script>
-            <div class="slide light">
+            <div class="slide">
                 <div class="lanterns">
                     <div class="small">
                         <div class="lantern left"></div>
@@ -192,8 +211,10 @@
                         <div class="lantern right"></div>
                     </div>
                 </div>
-                <!-- <div class="image"></div> -->
                 <div class="text">
+                    <div class="title">
+                        <p><%= content.title %></p>
+                    </div>
                     <div class="arabic" dir="rtl">
                         <p><%= slide.arabic %> ﴿<script>document.write(slideNumber)</script>﴾</p>
                         <!-- <p><%= slide.arabic %> (<%= slide.number %>)</p> -->
@@ -208,6 +229,7 @@
         <% }); %>
     <% } %>
     <script>
+        const titleTexts = document.getElementsByClassName("title");
         const arabicTexts = document.getElementsByClassName("arabic");
         const germanTexts = document.getElementsByClassName("german");
 
@@ -245,15 +267,14 @@
             return;
         }
 
+        for (const elem of titleTexts) {
+            resizeText(elem, 50);
+        }
         for (const elem of arabicTexts) {
-            // setFontSize(elem, 4.25);
-            resizeText(elem, 60);
-            // textFit(elem);
+            resizeText(elem, 80);
         }
         for (const elem of germanTexts) {
-            // setFontSize(elem, 4);
-            resizeText(elem, 45);
-            // // textFit(elem);
+            resizeText(elem, 50);
         }
         
     </script>

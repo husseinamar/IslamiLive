@@ -13,7 +13,7 @@ import { useExpressServer } from 'routing-controllers';
 import { Quiz, QuizCategory } from './api/models/Quiz';
 import axios from 'axios';
 
-const db_con = typeormLoader();
+typeormLoader();
 
 const app = express();
 

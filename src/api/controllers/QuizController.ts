@@ -189,7 +189,7 @@ export class QuizController {
 
         console.log('quiz:', quiz);
         console.log('unfiltered categories:', quiz.categories);
-        const categories = quiz.categories?.filter((category) => category.id === categoryId );
+        const categories = quiz.categories?.filter((category) => category.id.toString() === `${categoryId}` );
         console.log('filtered categories:', categories);
 
         if ( !categories || categories?.length === 0 ) {
@@ -431,7 +431,7 @@ export class QuizController {
             return response.status(404).send(errorResponse);
         }
 
-        const categories = quiz.categories?.filter((category) => category.id === categoryId);
+        const categories = quiz.categories?.filter((category) => category.id.toString() === `${categoryId}`);
 
         if ( categories?.length > 0 ) {
             const successResponse = {
@@ -502,7 +502,7 @@ export class QuizController {
             return response.status(404).send(errorResponse);
         }
 
-        const category = quiz.categories?.find((category) => category.id === categoryId);
+        const category = quiz.categories?.find((category) => category.id.toString() === `${categoryId}`);
 
         if ( !category ) {
             const errorResponse = {
@@ -513,7 +513,7 @@ export class QuizController {
             return response.status(404).send(errorResponse);
         }
 
-        const question = category.questions.find((question) => question.id === questionId);
+        const question = category.questions.find((question) => question.id.toString() === `${questionId}`);
 
         if ( !question ) {
             const errorResponse = {

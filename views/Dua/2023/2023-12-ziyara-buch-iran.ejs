@@ -1,0 +1,408 @@
+<html>
+
+<head>
+    <meta http-equiv="content-Type" content="text/html; utf-8" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://localhost:5002/css/style.css">
+
+    <style>
+        @font-face {
+            font-family: 'boutros';
+            src: URL('../../public/fonts/NotoSansArabic-VariableFont_wdth,wght.ttf');
+        }
+
+        @font-face {
+            font-family: 'NotoSansArabic-Bold';
+            src: URL('../../public/fonts/static/NotoSansArabic/NotoSansArabic-ExtraBold.ttf');
+        }
+
+        @font-face {
+            font-family: 'HacenLinerXL';
+            src: URL('../../public/fonts/static/HacenLinerXL/HacenLinerXL-Regular.ttf');
+        }
+
+        @font-face {
+            font-family: 'Noor-Regular';
+            src: URL('../../public/fonts/static/Noor/Noor-Regular.ttf');
+        }
+
+        :root{
+            --width: <%=assets.background.width %>mm;
+            --height: <%=assets.background.height %>mm;
+            --page-safety-distance: 20mm;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            padding: 0 !important;
+            margin: 0 !important;
+            width: var(--width) !important;
+            height: var(--height) !important;
+        }
+
+        div.page {
+            position: relative;
+            left: 0;
+            top: 0;
+            width: var(--width);
+            height: var(--height);
+            padding: 0;
+            margin: 0 !important;
+            background-image: url("<%= assets.background.src %>");
+            background-position: 0 0;
+            background-repeat: no-repeat;
+            background-size: var(--width) var(--height);
+            overflow: hidden;
+
+            /* background-color: bisque; */
+        }
+
+        div.page:nth-of-type(odd) {
+            padding: 0 0 0 var(--page-safety-distance) !important;
+        }
+
+        div.page:nth-of-type(even) {
+            padding: 0 var(--page-safety-distance) 0 0 !important;
+        }
+/* 
+        div.page:nth-of-type(odd) {
+            padding: 0 0 0 19.04% !important;
+        }
+
+        div.page:nth-of-type(even) {
+            padding: 0 19.04% 0 0 !important;
+        } */
+
+        .arabic {
+            font-family: "boutros", sans-serif;
+        }
+
+        .equal-width-columns th, .equal-width-columns td {
+            width: 1%;
+        }
+
+        .caption-top {
+            font-size: 8px;
+            text-align: center !important;
+            margin: 16px auto;
+            color: rgb(20, 20, 20);
+            /* color: rgb(156, 163, 175); */
+            width: 100%;
+        }
+
+        .page-number {
+            font-size: 8px;
+            color: rgb(20, 20, 20) !important;
+            /* color: rgb(156, 163, 175) !important; */
+        }
+
+        @media print {
+            .page {
+                page-break-before: always;
+            }
+        }
+
+        /*
+         *
+         * TABLE OF CONTENTS START
+         *
+         */
+
+        .toc-header {
+            margin-top: 16px;
+        }
+
+        .toc-list {
+            padding: 0;
+        }
+
+        .toc-list > li > div {
+            /* font-weight: bold; */
+            margin-block-start: 1em;
+        }
+
+        .toc-list li > div {
+            text-decoration: none;
+            display: grid;
+            grid-template-columns: auto max-content;
+            align-items: end;
+        }
+
+        .toc-list li > div > .title {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toc-list li > div .dots::after {
+            position: absolute;
+            padding-inline-start: .25ch;
+            content: " . . . . . . . . . . . . . . . . . . . "
+                ". . . . . . . . . . . . . . . . . . . . . . . "
+                ". . . . . . . . . . . . . . . . . . . . . . . "
+                ". . . . . . . . . . . . . . . . . . . . . . . "
+                ". . . . . . . . . . . . . . . . . . . . . . . "
+                ". . . . . . . . . . . . . . . . . . . . . . . "
+                ". . . . . . . . . . . . . . . . . . . . . . . ";
+        }
+
+        .toc-list li > div > .toc-page-number {
+            min-width: 2ch;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /*
+         *
+         * TABLE OF CONTENTS END
+         *
+         */
+
+    </style>
+
+    <script>
+        let pageNumber = 1;
+    </script>
+</head>
+
+<body>
+    <script>
+        const contentToLoad = [
+            {
+                id: 1,
+                name: '',
+                url: `<%- content.baseUrl %>/dua/chapters/` + 1,
+            },
+            {
+                id: 2,
+                name: '',
+                url: `<%- content.baseUrl %>/dua/chapters/` + 2,
+            },
+            {
+                id: 3,
+                name: '',
+                url: `<%- content.baseUrl %>/dua/chapters/` + 3,
+            },
+            {
+                id: 4,
+                name: '',
+                url: `<%- content.baseUrl %>/dua/chapters/` + 4,
+            },
+        ];
+        const duas = new Map();
+
+        const loadContent = async () => {
+            
+            const getRequests = contentToLoad.map(item => fetch(item.url));
+
+            const results = await Promise.allSettled(getRequests);
+
+            for ( const result of results ) {
+                if ( result.status === 'rejected' ) {
+                    console.log(result.reason);
+                }
+
+                try {
+                    jsonResponse = await result.value?.json();
+                    console.log(jsonResponse?.data);
+                    const dua = jsonResponse?.data;
+    
+                    if (!dua) {
+                        continue;
+                    }
+    
+                    duas.set(dua.id, dua);
+
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+
+            console.log(duas);
+        }
+
+        const duaToPages = async (id) => {
+            const dua = duas.get(id === undefined ? 0 : id);
+
+            if (!dua) {
+                return;
+            }
+
+            const pageTitle = `${dua.german}`
+            let [ page, table ] = newDuaPage(pageTitle);
+
+            for (let i = 0; i < dua.verses.length; i++) {
+                const line = dua.verses[i];
+                let tableBody = table.getElementsByTagName('tbody')[0];
+
+                const tr = document.createElement('tr');
+                tr.classList.add('relative', 'w-full');
+                tr.id = 'line-' + i;
+                
+                const germanCell = document.createElement('td');
+                germanCell.classList.add('german', 'w-[52%]', 'text-left', 'text-[12px]', 'border-r', 'border-gray-700', 'py-2', 'pl-4', 'pr-2');
+                // germanCell.classList.add('german', 'w-[52%]', 'text-left', 'text-justify', 'text-[12px]', 'border-r', 'border-gray-700', 'py-2', 'pl-4', 'pr-2');
+                germanCell.setAttribute('dir', 'ltr');
+                germanCell.textContent = line.german.trim();
+                
+                const arabicCell = document.createElement('td');
+                arabicCell.classList.add('arabic', 'w-[48%]', 'text-right', 'text-[12px]', 'py-2', 'pl-3', 'pr-2');
+                // arabicCell.classList.add('arabic', 'w-[48%]', 'text-right', 'text-justify', 'text-[12px]', 'py-2', 'pl-3', 'pr-2');
+                arabicCell.setAttribute('dir', 'rtl');
+                arabicCell.textContent = line.arabic.trim();
+
+                tr.append(germanCell, arabicCell);
+                tableBody.appendChild(tr);
+
+                if ( tableBody.offsetHeight <= (page.offsetHeight * 0.775) ) {
+                    continue;
+                }
+
+                tableBody.removeChild(tr);
+
+                // pageNumber++
+                [ page, table ] = newDuaPage(pageTitle);
+                tableBody = table.getElementsByTagName('tbody')[0];
+                tableBody.appendChild(tr);
+            }
+        }
+
+        const createTableOfContents = (direction) => {
+            // create table 
+            const toc = document.createElement('div');
+            toc.classList.add('w-[80%]', 'flex', 'flex-col', 'my-4');
+
+            const header = document.createElement('caption');
+            header.classList.add('w-full', 'text-gray-800', 'text-[16px]', 'my-4', 'text-center');
+
+            if ( direction === 'rtl' ) {
+                header.appendChild(document.createTextNode('جدول المحتويات'));
+                header.classList.add('arabic');
+            }
+
+            if ( direction !== 'rtl' ) {
+                header.appendChild(document.createTextNode('Inhaltsverzeichnis'));
+            }
+
+            toc.appendChild(header);
+            
+            const table = document.createElement('table');
+            table.classList.add('w-full', 'text-sm', 'text-gray-800');
+            table.setAttribute('dir', direction === 'rtl' ? 'rtl' : 'ltr');
+
+            for ( const entry of contentToLoad ) {
+                const dua = duas.get(entry.id);
+                
+                const tr = document.createElement('tr');
+                tr.classList.add('w-full', 'py-2');
+                
+                const title = document.createElement('td');
+                title.classList.add('title', `${direction === 'rtl' ? 'text-right': 'text-left'}`);                
+                
+                if ( direction === 'rtl' ) {
+                    title.appendChild(document.createTextNode(`${dua.id}. ${dua.name}`));
+                    title.classList.add('arabic');
+                }
+
+                if ( direction !== 'rtl' ) {
+                    title.appendChild(document.createTextNode(`${dua.id}. ${dua.german}`));
+                }
+                
+                const pageNumberContainer = document.createElement('td');
+                pageNumberContainer.classList.add('toc-page-number', `${direction === 'rtl' ? 'text-left': 'text-right'}`);
+                pageNumberContainer.appendChild(document.createTextNode(dua.pageNumber));
+
+                tr.appendChild(title);
+                tr.appendChild(pageNumberContainer);
+
+                table.appendChild(tr);
+            }
+
+            toc.appendChild(table);
+            return toc;
+        }
+
+        const createPage = (number, pageElementId) => {
+            // increment overall number of pages created
+            pageNumber++;
+            
+            const page = document.createElement('div');
+            page.classList.add('page', 'flex', 'flex-col', 'align-top', 'items-center', 'justify-stretch');
+            page.id = pageElementId;
+            page.setAttribute('data-page-number', number);
+
+            return page;
+        }
+
+        const newDuaPage = (title) => {
+            const page = createPage(pageNumber, `page_${pageNumber}`);
+            const table = document.createElement('table');
+            table.classList.add('relative', 'table-fixed', 'w-full', 'equal-width-columns', 'text-gray-800');
+            table.id = `table_${pageNumber}`;
+            
+            const caption = document.createElement('caption');
+            caption.classList.add('caption-top', 'text-gray-600', 'text-[8px]', 'my-4');
+            caption.appendChild(document.createTextNode(title));
+
+            table.appendChild(caption);
+            table.appendChild(document.createElement('tbody'));
+
+            const pageNumberContainer = document.createElement('span');
+            pageNumberContainer.classList.add('page-number', 'absolute', 'bottom-3', 'right-4');
+            
+            if ( pageNumber % 2 === 0 ) {
+                pageNumberContainer.classList.remove('right-4');
+                pageNumberContainer.classList.add('left-4');
+            }
+
+            pageNumberContainer.appendChild(document.createTextNode(pageNumber));
+            
+            page.appendChild(table);
+            page.appendChild(pageNumberContainer);
+
+            document.body.appendChild(page);
+
+            return [page, table];
+        }
+
+        loadContent()
+            .then(async () => {
+                for ( const entry of contentToLoad ) {
+                    const dua = duas.get(entry.id);
+                    dua.pageNumber = pageNumber + 1;
+                    duas.set(entry.id, dua);
+
+                    await duaToPages(dua.id);
+                }
+                // await duaToPages(1);
+            })
+            .then(() => {
+                const page = createPage(1, 'table-of-contents');
+                // page.classList.remove('justify-center');
+                // page.classList.add('justify-start');
+
+                const toc_german = createTableOfContents();
+                const toc_arabic = createTableOfContents('rtl');
+
+                console.log(toc_german);
+                console.log(toc_arabic);
+
+                page.appendChild(toc_german);
+                page.appendChild(toc_arabic);
+
+                document.body.insertBefore(page, document.body.firstElementChild);
+            })
+            ;
+
+
+        // const arabicTexts = document.getElementsByClassName("arabic");
+        // const germanTexts = document.getElementsByClassName("german");
+        // const titleTexts = document.getElementsByClassName("arabicTitle");
+
+    </script>
+</body>
+
+</html>

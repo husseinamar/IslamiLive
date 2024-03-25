@@ -52,6 +52,7 @@ export const env = {
         database: getOsEnv('TYPEORM_DATABASE'),
         synchronize: toBool(getOsEnvOptional('TYPEORM_SYNCHRONIZE')),
         logging: toBool(getOsEnv('TYPEORM_LOGGING')),
+        driverExtras: getOsEnv('TYPEORM_DRIVER_EXTRA'),
         charset: getOsEnv('TYPEORM_DRIVER_CHARSET'),
     },
     cache: {

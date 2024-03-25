@@ -1,0 +1,285 @@
+<html>
+    <head>
+        <meta http-equiv="content-Type" content="text/html; utf-8" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            @font-face {
+                font-family: 'boutros';
+                src: URL('../../public/fonts/NotoSansArabic-VariableFont_wdth,wght.ttf');
+            }
+
+            @font-face {
+                font-family: 'NotoSansArabic-Bold';
+                src: URL('../../public/fonts/static/NotoSansArabic/NotoSansArabic-ExtraBold.ttf');
+            }
+
+            @font-face {
+                font-family: 'HacenLinerXL';
+                src: URL('../../public/fonts/static/HacenLinerXL/HacenLinerXL-Regular.ttf');
+            }
+
+            @font-face {
+                font-family: 'Noor-Regular';
+                src: URL('../../public/fonts/static/Noor/Noor-Regular.ttf');
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            html, body {
+                padding: 0!important;
+                margin: 0!important;
+                width: 1920px!important;
+                height: 1080px!important;
+            }
+
+            div.slide {
+                position: relative;
+                left: 0;
+                top: 0;
+                width: 1920px;
+                height: 1080px;
+                padding: 0!important;
+                margin: 0!important;
+                background-image: url("<%= assets.background.src %>");
+                background-position: 0 0;
+                background-repeat: no-repeat;
+                background-size: 1920px 1080px;
+                overflow: hidden;
+            }
+
+            .image {
+                --width: <%= assets.image.width %>px;
+                --height: <%= assets.image.height %>px;
+                background-size: 1920px 1080px;
+                background-repeat: no-repeat;
+                width: calc(50px + var(--width));
+                height: var(--height);
+                position: absolute;
+                top: 30px;
+                left: 60px;
+            }
+
+            .title {
+                color: #d6a560;
+                height: 110px;
+                width: 420px;
+                position: absolute;
+                right: 480px;
+                top: 72px;
+                padding: 2px;
+            }
+
+            .night {
+                color: #d6a560;
+                height: 56px;
+                width: 327px;
+                position: absolute;
+                top: 98px;
+                left: 605px;
+            }
+
+            .night .arabicTitle {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+
+                font-weight: 800;
+                font-family: 'Noor-Regular';
+                font-size: 45px;
+                line-height: 56px;
+            }
+
+            .title .arabicTitle {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                font-weight: 800;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: 'Noor-Regular';
+                font-size: 36px;
+                line-height: 48px;
+            }
+
+            .text {
+                position: relative;
+                height: 100%;
+                width: 100%;
+                color: #eaeaea;
+                /* text-shadow: 2px 2px 2px rgba(0,0,0,0.2); */
+                /* background: pink; */
+            }
+
+            div.slide.light .text {
+                color: #1d1d1d;
+            }
+
+            .text .arabic {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+
+                /* font-family: 'NotoSansArabic-Bold'; */
+                font-family: 'boutros';
+                /* font-feature-settings: "ss01" 1;
+                direction: rtl;
+                unicode-bidi: embed; */
+                word-spacing: 10;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                padding: 10px;
+                /* font-weight: 550; */
+
+                position: absolute;
+                width: 1240px;
+                height: 440px;
+                left: 620px;
+                top: 235px;
+
+                /* background-color: yellow; */
+            }
+
+            .text .german.alternate,
+            .text .arabic.alternate {
+                color: #d6a560;
+                font-weight: 600;
+            }
+
+            .verseNumber {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+
+                position: absolute;
+                top: 98px;
+                left: 832px;
+                height: 60.5px;
+                width: 75px;
+
+                font-family: 'Helvetica';
+                font-size: 48px;
+                line-height: 48px;
+                color: #d6a560;
+                font-weight: 550;
+
+                /* font-family: 'me-quran'; */
+                /* white-space: nowrap; */
+            }
+
+            .text .german {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+
+                font-family: 'Helvetica';
+                word-spacing: 5;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                padding: 10px;
+                /* font-weight: 550; */
+
+                position: absolute;
+                height: 380px;
+                width: 1240px;
+                bottom: 55px;
+                left: 620px;
+
+                /* background-color: red; */
+            }
+
+            sup {
+                font-size: 20px;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            @media print {
+                .slide {
+                    page-break-before: always;
+                }
+            }
+        </style>
+    </head>
+    <body>
+    <% if( content !== undefined ) { %>
+        <% content.slides.forEach((slide) => { %>
+            <div class="slide">
+                <div class="night">
+                    <div class="arabicTitle">
+                        <p>ليلة القدر الثالثة</p>
+                    </div>
+                </div>
+                <div class="title">
+                    <div class="arabicTitle">
+                        <p><%- content.title %></p>
+                    </div>
+                </div>
+                <div class="verseNumber">
+                    <span><%= slide.slideNumber %></span>
+                </div>
+                <div class="text">
+                    <div class="german" dir="ltr">
+                        <p><%- slide.german %></p>
+                    </div>
+                    <div class="arabic" dir="rtl">
+                        <p><%- slide.arabic %></p>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    <% } %>
+    <script>
+        const arabicTexts = document.getElementsByClassName("arabic");
+        const germanTexts = document.getElementsByClassName("german");
+        const titleTexts = document.getElementsByClassName("arabicTitle");
+
+        const resizeText = (childDiv, maxSize) => {
+            const paragraph = childDiv.querySelector("p");
+            const maxWidth = childDiv.clientWidth;
+            const maxHeight = childDiv.clientHeight;
+
+            let fontSize = 15;
+            paragraph.style.fontSize = `${fontSize}px`;
+
+            while (paragraph.clientWidth < maxWidth && paragraph.clientHeight < maxHeight) {
+                fontSize++;
+                paragraph.style.fontSize = `${fontSize}px`;
+                paragraph.style.lineHeight = `${fontSize + 8}px`;
+            }
+
+            // Decrease the font size by 1 to ensure it fits within the child div
+            fontSize--;
+
+            if ( fontSize > maxSize ) {
+                fontSize = maxSize;
+            }
+
+            paragraph.style.fontSize = `${fontSize}px`;
+        }
+
+        for (const elem of arabicTexts) {
+            // resizeText(elem, 64);
+            resizeText(elem, 56);
+        }
+        for (const elem of germanTexts) {
+            // resizeText(elem, 50);
+            resizeText(elem, 40);
+        }
+    </script>
+    </body>
+</html>

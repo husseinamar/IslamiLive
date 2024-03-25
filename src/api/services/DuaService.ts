@@ -5,6 +5,9 @@ import { DuaChapterRepository } from '../repositories/DuaChapterRepository';
 import { DuaVerse } from '../models/DuaVerse';
 import { DuaVerseRepository } from '../repositories/DuaVerseRepository';
 import { getRepository, In, Like } from 'typeorm';
+import { DuaJSON } from '../models/DuaJSON';
+import { writeFile } from 'fs/promises';
+import * as path from 'path';
 
 @Service()
 export class DuaService {
@@ -166,5 +169,17 @@ export class DuaService {
     public async deleteVerse(id: number): Promise<any> {
         const verse = await this.DuaVerseRepository.delete(id);
         return verse;
+    }
+
+    public async writeDuaChapterToJsonFile(dua: DuaChapter): Promise<boolean> {
+        const filePath = path.join(process.cwd(), `/public/generated/Dua/json/${new Date().getFullYear()}/${dua.name}.json`);
+
+        try {
+            await writeFile(filePath, JSON.stringify(dua.toJSON()));
+        } catch (error) {
+            console.error(error);
+        }
+
+        return false;
     }
 }

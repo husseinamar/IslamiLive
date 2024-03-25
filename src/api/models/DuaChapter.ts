@@ -18,4 +18,14 @@ export class DuaChapter {
 
 	@OneToMany(() => DuaVerse, verse => verse.chapter )
 	public verses: DuaVerse[];
+
+	public toJSON(): { id: number, number: number, name: string, german: string, verses: DuaVerse[] } {
+		return {
+			id: this.id,
+			number: this.number,
+			name: this.name,
+			german: this.german,
+			verses: [...(this.verses ?? [])],
+		};
+	}
 }

@@ -104,3 +104,9 @@ dist
 .tern-port
 
 .DS_STORE
+
+userDataDir/*
+public/**/pdf/**/*
+public/**/pages/*
+public/**/pages/*
+**/*.dkim.*

@@ -13,6 +13,7 @@ export const typeormLoader = async () => {
         password: env.db.password,
         database: env.db.database,
         synchronize: env.db.synchronize,
+        migrationsRun: false,
         charset: env.db.charset,
         logging: env.db.logging,
         logger: 'advanced-console',
@@ -21,6 +22,24 @@ export const typeormLoader = async () => {
         conenctTimeout: 60000,
         acquireTimeout: 60000,
     });
+
+    // const connectionOptions = Object.assign(loadedConnectionOptions, {
+    //     name: 'default',
+    //     type: env.db.type,
+    //     host: env.db.host,
+    //     username: env.db.username,
+    //     password: env.db.password,
+    //     database: env.db.database,
+    //     synchronize: env.db.synchronize,
+    //     migrationsRun: false,
+    //     charset: env.db.charset,
+    //     logging: env.db.logging,
+    //     logger: 'advanced-console',
+    //     entities: env.app.dirs.entities,
+    //     migrations: env.app.dirs.migrations,
+    //     conenctTimeout: 60000,
+    //     acquireTimeout: 60000,
+    // });
 
     const connection = await createConnection(connectionOptions);
     return connection;

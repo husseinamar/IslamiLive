@@ -3,6 +3,7 @@ export class DuaJSON {
     public germanName: string;
     public germanTextIdentifier: string;
     public arabicTextIdentifier: string;
+    public transliterationTextIdentifier: string;
     public lines: Array<{}>;
 
     constructor(json) {
@@ -11,6 +12,7 @@ export class DuaJSON {
         this.germanName = json['germanName'];
         this.germanTextIdentifier = json['germanTextIdentifier'];
         this.arabicTextIdentifier = json['arabicTextIdentifier'];
+        this.transliterationTextIdentifier = json['transliterationTextIdentifier'];
         this.lines = json['lines'];
 
         console.log([
@@ -18,6 +20,7 @@ export class DuaJSON {
             this.germanName,
             this.germanTextIdentifier,
             this.arabicTextIdentifier,
+            this.transliterationTextIdentifier,
             this.lines
         ]);
     }

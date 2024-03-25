@@ -18,6 +18,8 @@ export class ImportDuaFromArrayRequest {
     })
     public arabicTextIdentifier: string;
 
+    public transliterationTextIdentifier: string;
+
     @IsNotEmpty({
         message: 'Please supply the arabic name of the chapter',
     })

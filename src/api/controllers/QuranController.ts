@@ -14,6 +14,7 @@ import { readFile, writeFile } from 'fs/promises'
 import * as path from 'path';
 import puppeteer from 'puppeteer';
 import ejs from 'ejs';
+import { sleep } from '../utils/utils';
 
 @Service()
 @JsonController('/quran')
@@ -99,6 +100,70 @@ export class QuranController {
         return response.status(200).send(successResponse);
     }
 
+    @Get('/chapters/all/pdf')
+    public async generateFullQuranPDF(
+        @QueryParam('limit') limit: number,
+        @QueryParam('offset') offset: number,
+        @QueryParam('keyword') keyword: string,
+        @QueryParam('count') count: number | boolean,
+        @QueryParam('order') order: string,
+        @Res() response: any
+    ): Promise<any> {
+        console.log(`Looking for quranChapter { id: all }`)
+        const relation = ['verses'];
+        const WhereConditions = [];
+        const fields = [];
+
+        const quranChapters = await this.quranService.listChapters(
+            limit,
+            offset,
+            fields,
+            relation,
+            WhereConditions,
+            keyword,
+            count,
+            order
+        ) as QuranChapter[];
+
+        if ( !quranChapters ) {
+            const errorResponse: any = {
+                status: 0,
+                message: 'Could not find a Quran Chapter with the provided id.',
+                data: undefined,
+            };
+            return response.status(200).send(errorResponse);
+        }
+
+        const successResponse: any = {
+            status: 1,
+            message: 'Found Quran Chapter.',
+            data: instanceToPlain({ path: path.join(__dirname, '../../..', 'public/generated/Quran/2023/pdf/full') }),
+        };
+        response.status(200).send(successResponse);
+
+        for ( let i = 23; i < quranChapters.length; i++ ) {
+            const quranChapter = quranChapters[i];
+            let hasBasmala = false;
+    
+            if ( quranChapter.verses.at(0).arabic === "بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ" ) {
+                hasBasmala = true;
+            }
+    
+            const number = quranChapter.number < 10 ? '00' + quranChapter.number : quranChapter.number < 100 ? '0' + quranChapter.number : quranChapter.number;
+
+            await this.createFullQuranPDFPuppeteer({
+                filename: number + ' ' + quranChapter.name,
+                path: path.join(__dirname, '../../..', 'public/generated/Quran/2023/pdf/full/'),
+            }, {
+                hasBasmala,
+                slides: quranChapter.verses,
+                title: `سورة ` + quranChapter.name,
+            });
+
+            await sleep(3000);
+        }
+    }
+
     @Get('/chapters/:id/pdf')
     public async generateFullChapterPDF(
         @Param('id') id: string,
@@ -128,16 +193,28 @@ export class QuranController {
             hasBasmala = true;
         }
 
-        const OUTFILE = path.join(__dirname, '../../..', 'public/generated/Quran/pdf/') + quranChapter.name;
-        await this.createPDFPuppeteer(OUTFILE, {
+        // const OUTFILE = path.join(__dirname, '../../..', 'public/generated/Quran/pdf/') + quranChapter.name;
+        // await this.createPDFPuppeteer(OUTFILE, {
+        //     hasBasmala,
+        //     slides: quranChapter.verses,
+        // });
+
+        const number = quranChapter.number < 10 ? '00' + quranChapter.number : quranChapter.number < 100 ? '0' + quranChapter.number : quranChapter.number;
+        const OUTFILE = {
+            filename: number + ' ' + quranChapter.name,
+            path: path.join(__dirname, '../../..', 'public/generated/Quran/2023/pdf/full/'),
+        };
+
+        await this.createFullQuranPDFPuppeteer(OUTFILE, {
             hasBasmala,
             slides: quranChapter.verses,
+            title: `سورة ` + quranChapter.name,
         });
         
         const successResponse: any = {
             status: 1,
             message: 'Found Quran Chapter.',
-            data: instanceToPlain({ url: OUTFILE + '.pdf', quranChapter }),
+            data: instanceToPlain({ url: `${OUTFILE.path}${OUTFILE.filename}.pdf`, quranChapter }),
         };
         return response.status(200).send(successResponse);
     }
@@ -491,6 +568,78 @@ export class QuranController {
                     left: 0,
                 },
                 path: output + '.pdf',
+                printBackground: true,
+            });
+    
+            console.log('[createPDFPuppeteer]', "done");
+            await browser.close();
+        });
+    
+    }
+
+    private async createFullQuranPDFPuppeteer(output: {
+        filename: string,
+        path: string,
+    }, content: any): Promise<any> {
+        console.log('[createPDFPuppeteer]', 'started converting to PDF');
+
+        const assets = {
+            background: {
+                src: ('../../../files/Templates/1/dark/Hintergrund.png'),
+                width: 1920,
+                height: 1080,
+            },
+            backgroundLight: {
+                src: ('../../../files/Templates/1/light/Hintergrund.png'),
+                width: 1920,
+                height: 1080,
+            },
+            ribbon: {
+                src: ('../../../files/Templates/1/dark/ribbon.png'),
+                width: 1921,
+                height: 130,
+            },
+            lantern: {
+                src: ('../../../files/Templates/1/dark/lantern.png'),
+                width: 170,
+                height: 438,
+            },
+            image: {
+                src: ('../../../files/Templates/1/dark/image.png'),
+                width: 502,
+                height: 559,
+            },
+        };
+
+        const browser = await puppeteer.launch({
+            headless: true,
+            defaultViewport: {
+                width: 1920,
+                height: 1080,
+            },
+            args: ['--allow-file-access-from-files', '--enable-local-file-accesses']
+        });
+    
+        await ejs.renderFile(path.join(__dirname, '../../..', 'views/Quran/slide.ejs'), {assets, content}, async (err: any, data: any) => {
+            const page = await browser.newPage();
+            // const file = 'public/pages/slide.html';
+            const file = path.join(__dirname, '../../..', 'public') + `/pages/quran/2023/${output.filename}.html`;
+            console.log('file://' + file);
+            await writeFile(file, data);
+            await page.goto('file://' + file);
+            // await page.setContent(data);
+    
+            await page.pdf({
+                omitBackground: true,
+                width: 1920,
+                height: 1080,
+                margin: {
+                    top: 0,
+                    right: 0,
+                    bottom: 0,
+                    left: 0,
+                },
+                path: output.path + output.filename + '.pdf',
                 printBackground: true,
             });
     
